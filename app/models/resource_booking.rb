@@ -1,0 +1,2 @@
+class ResourceBooking < ApplicationRecord
+end
