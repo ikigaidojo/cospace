@@ -10,56 +10,67 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20180509053432) do
-
+ActiveRecord::Schema.define(version: 20180509075348) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-
-  create_table "invoices", force: :cascade do |t|
-    t.string "invoice_name"
-    t.string "description"
-    t.datetime "date_paid"
+  create_table "membership_types", force: :cascade do |t|
+    t.string "name"
     t.integer "price"
-    t.string "status"
-    t.string "location"
+    t.integer "total_price"
+    t.boolean "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "members", force: :cascade do |t|
+  create_table "memberships", force: :cascade do |t|
+    t.string "name"
+    t.integer "price"
+    t.integer "total_days"
+    t.integer "remaining_days"
+    t.integer "total_price"
+    t.datetime "date_issued"
+    t.datetime "date_ending"
+    t.boolean "validity"
+    t.boolean "current"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "first_name"
-    t.string "last_name"
-    t.string "phone_number"
-    t.string "email"
-    t.string "password"
-    t.datetime "time_created"
-    t.string "gender"
+  end
+
+  create_table "resources", force: :cascade do |t|
+    t.string "name"
+    t.integer "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "room_bookings", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.string "name"
     t.text "description"
     t.integer "price"
     t.string "facilities"
     t.string "location"
     t.datetime "date_booked"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "rooms", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.string "name"
     t.text "description"
     t.integer "price"
     t.string "facilities"
     t.string "location"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
+  create_table "units", force: :cascade do |t|
+    t.string "label"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
