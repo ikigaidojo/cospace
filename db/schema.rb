@@ -18,6 +18,29 @@ ActiveRecord::Schema.define(version: 20180509082641) do
   create_table "resource_bookings", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end  
+
+  create_table "membership_types", force: :cascade do |t|
+    t.string "name"
+    t.integer "price"
+    t.integer "total_price"
+    t.boolean "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "memberships", force: :cascade do |t|
+    t.string "name"
+    t.integer "price"
+    t.integer "total_days"
+    t.integer "remaining_days"
+    t.integer "total_price"
+    t.datetime "date_issued"
+    t.datetime "date_ending"
+    t.boolean "validity"
+    t.boolean "current"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "resources", force: :cascade do |t|
