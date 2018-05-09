@@ -1,0 +1,2 @@
+class PaymentConfirmation < ApplicationRecord
+end
