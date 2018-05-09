@@ -39,8 +39,10 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
-  gem 'rspec-rails' 
-  gem 'guard-rspec', require: false
+  
+  gem "rspec-rails",   "3.7.2"                    # https://github.com/rspec/rspec-rails 
+  gem "guard-rspec",   "4.7.3", require: false
+  gem "awesome_print", "1.8.0"                    # https://github.com/awesome-print 
 end
 
 group :development do

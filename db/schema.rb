@@ -10,12 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180509084355) do
+
+ActiveRecord::Schema.define(version: 20180509082641) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+
   create_table "event_attendees", force: :cascade do |t|
+
+  create_table "resource_bookings", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end  
+
+  create_table "membership_types", force: :cascade do |t|
+    t.string "name"
+    t.integer "price"
+    t.integer "total_price"
+    t.boolean "status"
+
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -37,6 +51,55 @@ ActiveRecord::Schema.define(version: 20180509084355) do
     t.text "description"
     t.integer "price"
     t.datetime "date_issued"
+
+  create_table "memberships", force: :cascade do |t|
+    t.string "name"
+    t.integer "price"
+    t.integer "total_days"
+    t.integer "remaining_days"
+    t.integer "total_price"
+    t.datetime "date_issued"
+    t.datetime "date_ending"
+    t.boolean "validity"
+    t.boolean "current"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "resources", force: :cascade do |t|
+    t.string "name"
+    t.integer "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "room_bookings", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.integer "price"
+    t.string "facilities"
+    t.string "location"
+    t.datetime "date_booked"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.integer "price"
+    t.string "facilities"
+    t.string "location"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "units", force: :cascade do |t|
+    t.string "label"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+
   end
 
 end

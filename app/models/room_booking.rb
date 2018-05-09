@@ -1,0 +1,2 @@
+class RoomBooking < ApplicationRecord
+end
