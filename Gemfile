@@ -40,7 +40,7 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
 
-  gem "awesome_print"
+  gem "awesome_print", "1.8.0"
   gem "rspec-rails"
 end
 
