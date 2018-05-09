@@ -10,47 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20180509082641) do
+ActiveRecord::Schema.define(version: 20180509083008) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-
   create_table "event_attendees", force: :cascade do |t|
-
-  create_table "resource_bookings", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end  
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "room"
+    t.integer "price"
+    t.integer "attendees"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "membership_types", force: :cascade do |t|
     t.string "name"
     t.integer "price"
     t.integer "total_price"
     t.boolean "status"
-
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  create_table "events", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "name"
-    t.text "description"
-    t.string "room"
-    t.integer "price"
-    t.integer "attendees"
-  end
-
-  create_table "payment_confirmations", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "name"
-    t.text "description"
-    t.integer "price"
-    t.datetime "date_issued"
 
   create_table "memberships", force: :cascade do |t|
     t.string "name"
@@ -62,6 +49,20 @@ ActiveRecord::Schema.define(version: 20180509082641) do
     t.datetime "date_ending"
     t.boolean "validity"
     t.boolean "current"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "payment_confirmations", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.integer "price"
+    t.datetime "date_issued"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "resource_bookings", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -99,7 +100,6 @@ ActiveRecord::Schema.define(version: 20180509082641) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-
   end
 
 end
