@@ -10,10 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20180509053432) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
 
   create_table "invoices", force: :cascade do |t|
     t.string "invoice_name"
@@ -36,6 +39,27 @@ ActiveRecord::Schema.define(version: 20180509053432) do
     t.string "password"
     t.datetime "time_created"
     t.string "gender"
+
+  create_table "room_bookings", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.text "description"
+    t.integer "price"
+    t.string "facilities"
+    t.string "location"
+    t.datetime "date_booked"
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.text "description"
+    t.integer "price"
+    t.string "facilities"
+    t.string "location"
+
   end
 
 end

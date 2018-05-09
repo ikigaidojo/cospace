@@ -46,6 +46,9 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+
+  gem "awesome_print", "1.8.0" #https://github.com/awesome-print 
+  gem "rspec-rails"
 end
 
 group :development do
