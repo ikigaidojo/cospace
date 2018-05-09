@@ -17,15 +17,15 @@ RSpec.describe MembershipType, type: :model do
     expect(@membershiptype.name).to eq "Membership name" 
   end
 
-  it "should be able to create a description" do
+  it "should be able to create a price" do
     expect(@membershiptype.price).to eq 200
   end
 
-  it "should be able to create a price" do
+  it "should be able to create a total_price" do
     expect(@membershiptype.total_price).to eq 200
   end
 
-  it "should be able to create a facilities" do
+  it "should be able to create a status" do
     expect(@membershiptype.status).to eq true
   end
 

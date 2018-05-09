@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180509070456) do
+ActiveRecord::Schema.define(version: 20180509072255) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,20 @@ ActiveRecord::Schema.define(version: 20180509070456) do
     t.integer "price"
     t.integer "total_price"
     t.boolean "status"
+  end
+
+  create_table "memberships", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.integer "price"
+    t.integer "total_days"
+    t.integer "remaining_days"
+    t.integer "total_price"
+    t.datetime "date_issued"
+    t.datetime "date_ending"
+    t.boolean "validity"
+    t.boolean "current"
   end
 
   create_table "room_bookings", force: :cascade do |t|
