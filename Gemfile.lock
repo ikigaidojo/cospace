@@ -227,13 +227,13 @@ DEPENDENCIES
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
-  guard-rspec
+  guard-rspec (= 4.7.3)
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   pg (>= 0.18, < 2.0)
   puma (~> 3.7)
   rails (~> 5.1.5)
-  rspec-rails
+  rspec-rails (= 3.7.2)
   sass-rails (~> 5.0)
   selenium-webdriver
   spring
