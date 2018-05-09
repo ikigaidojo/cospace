@@ -1,24 +1,24 @@
 require 'rails_helper'
 
 RSpec.describe Member, type: :model do
-               
+        
   before :each do
-    @first                      = "Steve"
-    @last                       = "Jobs"
-    @phone                      = "0123456789"
-    @email                      = "steve.jobs@apple.com"
-    @password                   = "password"
-    @Time                       = Time.zone.now
-    @gender                     = "male"
+    @first    = "Steve"
+    @last     = "Jobs"
+    @phone    = "0123456789"
+    @email    = "steve.jobs@apple.com"
+    @password = "password"
+    @Time     = Time.zone.now
+    @gender   = "male"
    
     @member = Member.create do |m|
-      m.first_name            = @first
-      m.last_name             = @last
-      m.phone_number          = @phone
-      m.email                 = @email
-      m.password              = @password
-      m.time_created          = @time_created
-      m.gender                = @gender
+      m.first_name   = @first
+      m.last_name    = @last
+      m.phone_number = @phone
+      m.email        = @email
+      m.password     = @password
+      m.time_created = @time_created
+      m.gender       = @gender
     end
   end
     
@@ -86,7 +86,7 @@ RSpec.describe Member, type: :model do
 
   it "needs a valid email when filling out form" do  
     @member.email           = "steve.jobs/apple.com"   # if email is changed to a real email, this should fail, making the whole test fail
-    @member.save          
+    @member.save        
 
     expect(@member.valid?).to eq false
   end
