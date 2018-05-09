@@ -223,7 +223,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  awesome_print
+  awesome_print (= 1.8.0)
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
