@@ -57,13 +57,12 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem "capybara", "~> 2.13"
   gem "selenium-webdriver"
-  
-  # Add should testing for association testing    
-  gem 'shoulda', '~> 3.5'                         # https://github.com/thoughtbot/shoulda
-  gem "rspec-rails",   "3.7.2"                    # https://github.com/rspec/rspec-rails 
-  gem "guard-rspec",   "4.7.3", require: false    # https://github.com/guard/guard-rspec
-  gem "awesome_print", "1.8.0"                    # https://github.com/awesome-print 
-  gem 'simplecov', require: false, group: :test   # https://github.com/colszowka/simplecov
+
+  gem "rspec-rails",      "3.7.2"                  # https://github.com/rspec/rspec-rails 
+  gem "guard-rspec",      "4.7.3", require: false  # https://github.com/guard/guard-rspec
+  gem "awesome_print",    "1.8.0"                  # https://github.com/awesome-print 
+  gem 'simplecov',        "0.16.1", require: false # https://github.com/colszowka/simplecov
+  gem "shoulda-matchers", "3.1.2"                  # https://github.com/thoughtbot/shoulda-matchers
 end
 
 group :development do
