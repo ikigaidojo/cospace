@@ -109,8 +109,9 @@ RSpec.describe Member, type: :model do
     expect(@new.save).to eq false
   end
 
-
-
+  it "should make sure member 'has_many' room_booking" do
+    should have_many(:room_bookings)
+  end
 end # end .describe
 
 

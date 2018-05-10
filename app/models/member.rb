@@ -8,4 +8,6 @@ class Member < ApplicationRecord
   validates_presence_of       :phone_number,    :message => "Can't be blank"
   validates_presence_of       :gender,          :message => "Can't be blank"
   validates_presence_of       :password,        :message => "Can't be blank"
+  has_many :room_bookings
+
 end
