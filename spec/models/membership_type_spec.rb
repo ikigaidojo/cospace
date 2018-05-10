@@ -33,6 +33,10 @@ RSpec.describe MembershipType, type: :model do
     should have_many(:memberships)
   end
 
+  it "should have many members" do
+    should have_many(:members)
+  end 
+
 end
 
 
