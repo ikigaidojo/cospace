@@ -3,7 +3,10 @@ class Member < ApplicationRecord
   # :lockable,  and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, :timeoutable
-  
+  # I made devise work by deleting the email column in the members table (in schema.rb). (using guide below)
+  # https://stackoverflow.com/questions/38820188/rails-5-how-to-remove-a-column-from-a-database/38820224
+
+
   validates_presence_of       :first_name,      :message => "Can't be blank"
   validates_presence_of       :last_name,       :message => "Can't be blank"
   validates_presence_of       :email,           :message => "Can't be blank"
