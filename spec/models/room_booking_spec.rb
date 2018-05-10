@@ -37,4 +37,9 @@ RSpec.describe RoomBooking, type: :model do
     expect(@roombooking.date_booked).to eq "January" 
   end
 
+  it "should make sure room_bookings 'belong_to' member" do
+    should belong_to(:member)
+  end
+
+
 end
