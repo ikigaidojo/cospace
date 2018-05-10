@@ -57,6 +57,8 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 
+  #https://github.com/thoughtbot/shoulda-matchers/blob/master/README.md
+
   Shoulda::Matchers.configure do |config|
     config.integrate do |with|
       # Choose a test framework:
@@ -70,4 +72,5 @@ RSpec.configure do |config|
       with.library :rails
     end
   end
+
 end
