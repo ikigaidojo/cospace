@@ -48,6 +48,9 @@ gem 'bootstrap'
 
 
 group :development, :test do
+  
+
+
   # Call "byebug" anywhere in the code to stop execution and get a debugger console
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
 
@@ -55,6 +58,8 @@ group :development, :test do
   gem "capybara", "~> 2.13"
   gem "selenium-webdriver"
   
+  # Add should testing for association testing    
+  gem 'shoulda', '~> 3.5'                         # https://github.com/thoughtbot/shoulda
   gem "rspec-rails",   "3.7.2"                    # https://github.com/rspec/rspec-rails 
   gem "guard-rspec",   "4.7.3", require: false    # https://github.com/guard/guard-rspec
   gem "awesome_print", "1.8.0"                    # https://github.com/awesome-print 
