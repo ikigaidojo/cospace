@@ -29,4 +29,11 @@ RSpec.describe MembershipType, type: :model do
     expect(@membershiptype.status).to eq true
   end
 
+  it "should have many memberships" do
+    should have_many(:memberships)
+  end
+
 end
+
+
+

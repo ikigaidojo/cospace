@@ -95,22 +95,25 @@ RSpec.describe Member, type: :model do
   it 'has a unique email' do
     #just to make test make more sense
     @member.email               = @email 
-
+ 
     @new = Member.new 
     @new.email                  = @email
     @new.first_name             = "Bob"
     @new.last_name              = "Bobson"
     @new.phone_number           = "0123456789"
     @new.password               = "password"
-    @new.gender                 = "male"
+    @new.gender                 = "male"  
     
 
     expect(@new.valid?).to eq false
     expect(@new.save).to eq false
   end
 
+  it "should have many payment confirmations" do
+   should have_many(:payment_confirmations)
+  end
 
 
-end # end .describe
+end # end of .describe
 
 

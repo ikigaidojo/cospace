@@ -1,3 +1,5 @@
+require 'simplecov'
+SimpleCov.start
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
@@ -56,11 +58,12 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 
   #https://github.com/thoughtbot/shoulda-matchers/blob/master/README.md
+
   Shoulda::Matchers.configure do |config|
     config.integrate do |with|
       # Choose a test framework:
       with.test_framework :rspec
-     
+
       # Choose one or more libraries:
       with.library :active_record
       with.library :active_model
@@ -69,4 +72,5 @@ RSpec.configure do |config|
       with.library :rails
     end
   end  
+
 end
