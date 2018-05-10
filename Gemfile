@@ -43,6 +43,10 @@ gem "jbuilder", "~> 2.5"
 # Use Capistrano for deployment
 # gem "capistrano-rails", group: :development
 
+#add bootstrap 4 https://medium.com/@RyanDavidson/add-bootstrap-to-your-ruby-on-rails-project-8d76d70d0e3b
+gem 'bootstrap'
+
+
 group :development, :test do
   # Call "byebug" anywhere in the code to stop execution and get a debugger console
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
