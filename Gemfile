@@ -54,7 +54,7 @@ group :development, :test do
   gem "rspec-rails",   "3.7.2"                    # https://github.com/rspec/rspec-rails 
   gem "guard-rspec",   "4.7.3", require: false    # https://github.com/guard/guard-rspec
   gem "awesome_print", "1.8.0"                    # https://github.com/awesome-print 
-  gem 'simplecov', require: false, group: :test
+  gem 'simplecov', require: false, group: :test   # https://github.com/colszowka/simplecov
 end
 
 group :development do
