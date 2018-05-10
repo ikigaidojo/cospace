@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Invoice, type: :model do
   
   before :each do 
-    @invoice_name         = "Invoice 2"
+    @invoice_name = "Invoice 2"
     @description  = "An automated invoice from co-space"
     @date_paid    = Time.zone.now
     @price        = 1000

@@ -8,9 +8,7 @@ RSpec.describe MembershipType, type: :model do
       mt.price = 200
       mt.total_price = 200
       mt.status = true
-
     end
-
   end 
 
   it "should be able to create a name" do

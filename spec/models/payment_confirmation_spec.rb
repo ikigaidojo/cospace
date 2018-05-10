@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe PaymentConfirmation, type: :model do
+  
  before :each do
     @paymentconfirmation = PaymentConfirmation.create do |pc|
       pc.name = "Monique" 

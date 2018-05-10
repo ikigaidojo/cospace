@@ -11,7 +11,6 @@ RSpec.describe RoomBooking, type: :model do
       rb.location = "launch garage"
       rb.date_booked = "January"
     end
-
   end 
 
   it "should be able to create a name" do
