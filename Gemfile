@@ -43,8 +43,10 @@ gem "jbuilder", "~> 2.5"
 # Use Capistrano for deployment
 # gem "capistrano-rails", group: :development
 
-#add bootstrap 4 https://medium.com/@RyanDavidson/add-bootstrap-to-your-ruby-on-rails-project-8d76d70d0e3b
-gem 'bootstrap'
+#add bootstrap 4 
+gem 'bootstrap'       # explainer tutorial --> https://medium.com/@RyanDavidson/add-bootstrap-to-your-ruby-on-rails-project-8d76d70d0e3b
+
+gem 'devise'          # http://devise.plataformatec.com.br/
 
 
 group :development, :test do
