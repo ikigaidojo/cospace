@@ -109,11 +109,15 @@ RSpec.describe Member, type: :model do
     expect(@new.save).to eq false
   end
 
-  it "should have many payment confirmations" do
-   should have_many(:payment_confirmations)
+  it "should make sure member 'has_many' room_booking" do
+    should have_many(:room_bookings)
   end
+  
+  it "should have many payment confirmations" do
+    should have_many(:payment_confirmations)
+  end
+end # end .describe
 
 
-end # end of .describe
 
 
