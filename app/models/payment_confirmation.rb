@@ -1,2 +1,5 @@
 class PaymentConfirmation < ApplicationRecord
-end
+
+  belongs_to :member
+
+end 

@@ -8,9 +8,7 @@ RSpec.describe MembershipType, type: :model do
       mt.price = 200
       mt.total_price = 200
       mt.status = true
-
     end
-
   end 
 
   it "should be able to create a name" do
@@ -29,4 +27,15 @@ RSpec.describe MembershipType, type: :model do
     expect(@membershiptype.status).to eq true
   end
 
+  it "should have many memberships" do
+    should have_many(:memberships)
+  end
+
+  it "should have many members" do
+    should have_many(:members)
+  end 
+
 end
+
+
+
