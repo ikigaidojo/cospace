@@ -33,4 +33,8 @@ RSpec.describe Room, type: :model do
     expect(@room.location).to eq "launch garage" 
   end
 
+  it "should make sure room 'has_many' room_booking" do
+    should have_many(:room_bookings)
+  end
+  
 end
