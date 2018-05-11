@@ -116,8 +116,13 @@ RSpec.describe Member, type: :model do
   it "should have many payment confirmations" do
     should have_many(:payment_confirmations)
   end
+
+  it "should make sure member 'has_many' event" do
+    should have_many(:events)
+  end
+
+  it "should make sure member 'has_many' event_attendee" do
+    should have_many(:event_attendees)
+  end
+  
 end # end .describe
-
-
-
-
