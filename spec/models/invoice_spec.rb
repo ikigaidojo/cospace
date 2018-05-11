@@ -62,17 +62,5 @@ RSpec.describe Invoice, type: :model do
     expect(@invoice.save).to eq true
   end
 
-  
-
-
-
-
-
-
-
-
-
-
-
 end
 

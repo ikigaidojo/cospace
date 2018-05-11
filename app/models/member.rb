@@ -11,4 +11,7 @@ class Member < ApplicationRecord
 
   has_many :room_bookings
   has_many :payment_confirmations 
+  has_many :events
+  has_many :event_attendees
+
 end
