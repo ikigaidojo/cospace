@@ -41,6 +41,8 @@ RSpec.describe RoomBooking, type: :model do
   it "should make sure room_bookings 'belong_to' member" do
     should belong_to(:member)
   end
-
-
+ 
+ it "should 'belongs_to' room" do
+    should belong_to(:room)
+  end
 end
