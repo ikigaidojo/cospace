@@ -20,30 +20,30 @@
 
   <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="#">Cospace</a>
+        <!-- <a class="navbar-brand" href="#">Cospace</a> -->
+        <!-- refractored above code to bottom code -->
+        <%= link_to "Cospace", root_url, class: "navbar-brand" %>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Home
-                <span class="sr-only">(current)</span>
-              </a>
+              <%= link_to "Home", root_url, class: "nav-link" %>
             </li>
             <li class="nav-item">
-              <%= link_to "Login", new_member_session_path %>
+              <%= link_to "Login", new_member_session_path, class: "nav-link" %>
             </li>
             <li class="nav-item">
-              <%= link_to "Register", new_member_registration_path %>
+              <%= link_to "Register", new_member_registration_path, class: "nav-link" %>
             </li>
             <li class="nav-item">
-               <%= link_to 'About', page_path('about') %>
+              <%= link_to 'About', page_path('about'), class: "nav-link" %>
             </li>
             <li class="nav-item">
-               <%= link_to 'Contact', page_path('contact') %>
+              <%= link_to 'Contact', page_path('contact'), class: "nav-link" %>
             </li>
           </ul>
         </div>
@@ -57,7 +57,7 @@
           <p class="notice"><%= notice %></p>
           <p class="alert"><%= alert %></p>
           <h1 class="mt-5">Cospace</h1>
-          <p class="lead">Everyone should be happy</p>
+          <p class="lead">Everyone should be happy lalalala</p>
           <%= yield %>
           <!-- <ul class="list-unstyled">
             <li>Bootstrap 4.1.1</li>
@@ -67,9 +67,6 @@
       </div>
     </div>
 
-    <%= yield %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
     
   </body>
 </html>
