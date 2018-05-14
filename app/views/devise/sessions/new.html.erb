@@ -6,9 +6,10 @@
       <h2 class=“card-title”>Sign in</h2>
       <p class=“card-text”>for cospace</p><br />
 
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Enter your prefered email" %> <br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Enter your prefered email" %> <br />
 
-        <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Enter a unique password" %> <br />
+      <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Enter a unique password" %> <br />
+
       <div class="row">
         <div class="col-6 text-left">
           <% if devise_mapping.rememberable? -%>
