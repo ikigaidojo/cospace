@@ -1,6 +1,6 @@
 class CreateRoomBookings < ActiveRecord::Migration[5.1]
   def change
-    create_table :room_bookings do |t|
+    create_table   :room_bookings do |t|
       t.string     :name
       t.text       :description
       t.integer    :price

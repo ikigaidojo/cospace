@@ -1,6 +1,6 @@
 class CreatePaymentConfirmations < ActiveRecord::Migration[5.1]
   def change
-    create_table :payment_confirmations do |t|
+    create_table   :payment_confirmations do |t|
       t.string     :name
       t.text       :description
       t.integer    :price

@@ -1,6 +1,6 @@
 class CreateMemberships < ActiveRecord::Migration[5.1]
   def change
-    create_table :memberships do |t|
+    create_table   :memberships do |t|
       t.string     :name
       t.integer    :price
       t.integer    :total_days
