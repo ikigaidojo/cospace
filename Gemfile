@@ -45,6 +45,8 @@ gem "jbuilder", "~> 2.5"
 
 gem 'devise'   # https://github.com/plataformatec/devise#getting-started
 
+gem "simple_calendar", "~> 2.0" # https://github.com/excid3/simple_calendar
+
 
 group :development, :test do
 
