@@ -1,5 +1,6 @@
 class Admin < ApplicationRecord
 
+  has_many :resources
   has_many :units
 	has_many :events
 	has_many :invoices
