@@ -128,5 +128,4 @@ RSpec.describe Member, type: :model do
   it "should make sure member 'has_many' event_attendee" do
     should have_many(:event_attendees)
   end
-  
 end # end .describe
