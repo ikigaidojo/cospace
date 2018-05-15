@@ -39,4 +39,8 @@ RSpec.describe Event, type: :model do
     should belong_to(:member)
   end
 
+  it "should 'belongs_to' admin" do
+    should belong_to(:admin)
+  end
+
 end
