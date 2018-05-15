@@ -26,4 +26,6 @@ RSpec.describe Admin, type: :model do
     expect(@member.email).to eq @email
   end
 
+ 
+
 end
