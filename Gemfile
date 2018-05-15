@@ -77,3 +77,4 @@ gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "bootstrap",          "4.1.1"                  # https://github.com/twbs/bootstrap  
 gem 'high_voltage',       "3.1.0"                  # https://github.com/thoughtbot/high_voltage
+gem 'jquery-rails'                                 # https://github.com/rails/jquery-rails
