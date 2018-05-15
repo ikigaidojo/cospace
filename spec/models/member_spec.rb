@@ -116,6 +116,11 @@ RSpec.describe Member, type: :model do
   it "should have many payment confirmations" do
     should have_many(:payment_confirmations)
   end
+
+  it "should have many invoices" do
+    should have_many(:invoices)
+  end
+  
 end # end .describe
 
 
