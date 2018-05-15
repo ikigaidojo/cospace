@@ -62,17 +62,10 @@ RSpec.describe Invoice, type: :model do
     expect(@invoice.save).to eq true
   end
 
+  it "should belong to member" do
+    should belong_to(:member)
+  end
   
-
-
-
-
-
-
-
-
-
-
 
 end
 

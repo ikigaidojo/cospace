@@ -10,5 +10,7 @@ class Member < ApplicationRecord
   validates_presence_of       :password,        :message => "Can't be blank"
 
   has_many :room_bookings
-  has_many :payment_confirmations 
+  has_many :payment_confirmations
+  has_many :invoices
+   
 end
