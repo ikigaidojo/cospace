@@ -1,5 +1,4 @@
 class Room < ApplicationRecord
-
-  has_many :room_bookings
-  
+  validates :name, :presence => true
+  has_many  :room_bookings
 end

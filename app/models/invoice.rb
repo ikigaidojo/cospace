@@ -8,6 +8,7 @@ class Invoice < ApplicationRecord
   validates             :price, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
   belongs_to :member, optional: true
-  
+  has_many   :payment_confirmations
+
 end
 
