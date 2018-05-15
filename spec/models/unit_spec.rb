@@ -20,4 +20,8 @@ RSpec.describe Unit, type: :model do
   		expect(@unit.description).to eq @description
   	end
 
+    it "should belong to admin" do
+      should belong_to(:admin)
+    end
+
 end
