@@ -65,7 +65,5 @@ RSpec.describe Invoice, type: :model do
   it "should belong to member" do
     should belong_to(:member)
   end
-  
-
 end
 

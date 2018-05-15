@@ -9,7 +9,6 @@ RSpec.describe Event, type: :model do
       ev.price = 5000
       ev.attendees = 30
     end
-
   end 
 
   it "should be able to create a name" do
@@ -31,4 +30,13 @@ RSpec.describe Event, type: :model do
   it "should be able to create a attendees" do
     expect(@event.attendees).to eq 30
   end
+
+  it "should make sure event 'has_many' event_attendee" do
+    should have_many(:event_attendees)
+  end
+
+  it "should 'belongs_to' member" do
+    should belong_to(:member)
+  end
+
 end

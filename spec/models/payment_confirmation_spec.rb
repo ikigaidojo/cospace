@@ -26,4 +26,9 @@ RSpec.describe PaymentConfirmation, type: :model do
   it "should be able to create a date_issued" do
     expect(@paymentconfirmation.date_issued).to eq "November 29" 
   end
+
+  it "should belong to invoice" do
+    should belong_to(:invoice) 
+  end
+
 end

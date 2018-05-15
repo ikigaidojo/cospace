@@ -19,4 +19,5 @@ RSpec.describe Unit, type: :model do
   	it "should be able to create a description attribute" do
   		expect(@unit.description).to eq @description
   	end
+
 end
