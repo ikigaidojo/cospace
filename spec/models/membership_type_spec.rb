@@ -37,6 +37,9 @@ RSpec.describe MembershipType, type: :model do
     should have_many(:members)
   end 
 
+  it "should 'belongs_to' admin" do
+    should belong_to(:admin)
+  end
 end
 
 
