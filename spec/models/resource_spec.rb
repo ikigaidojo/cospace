@@ -24,4 +24,8 @@ RSpec.describe Resource, type: :model do
     should have_many(:resource_bookings)
   end
 
+  it "should 'belongs_to' admin" do
+    should belong_to(:admin)
+  end
+
 end

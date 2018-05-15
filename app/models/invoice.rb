@@ -9,6 +9,7 @@ class Invoice < ApplicationRecord
 
   belongs_to :member, optional: true
   has_many   :payment_confirmations
+  belongs_to :admin
 
 end
 
