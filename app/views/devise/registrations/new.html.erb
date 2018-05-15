@@ -1,26 +1,26 @@
-
-
-<div class="card text-center" style="max-width: 40rem;">
-  <div class="card-body">
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "form-group"}) do |f| %>
-      <%= devise_error_messages! %>
-      <h2 class="card-title">Sign up</h2>
-      <p class="card-text">for cospace</p><br />
-      
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Enter your prefered email" %>
+<div class="mx-auto" style="max-width: 23rem;">
+  <div class="card text-center">
+    <div class="card-body">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "form-group"}) do |f| %>
+        <%= devise_error_messages! %>
+        <h2 class="card-title">Sign up</h2>
+        <p class="card-text">for cospace</p><br />
+        
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Enter your prefered email" %>
+          <br />
+          <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Enter a unique password" %>
+       
+          <br />
+          <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "Confirm Password" %>
+        
+        <div class="actions">
         <br />
-        <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Enter a unique password" %>
-     
-        <br />
-        <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "Confirm Password" %>
-      
-      <div class="actions">
-      <br />
-        <%= f.submit "Sign up", class: "btn btn-secondary" %>
-      </div>
-      <br>
-      <%= render "devise/shared/links" %>
-    <% end %>
+          <%= f.submit "Sign up", class: "btn btn-secondary" %>
+        </div>
+        <br>
+        <%= render "devise/shared/links" %>
+      <% end %>
+    </div>
   </div>
 </div>
 
