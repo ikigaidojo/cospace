@@ -5,6 +5,9 @@
         <%= devise_error_messages! %>
         <h2 class="card-title">Sign up</h2>
         <p class="card-text">for cospace</p><br />
+
+          <%= f.text_field :first_name, autofocus: true, autocomplete: "name", class: "form-control", placeholder: "Enter your name" %>
+          <br />
         
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Enter your prefered email" %>
           <br />
