@@ -1,5 +1,5 @@
-<div class="mx-auto" style="max-width: 35rem;">
-  <div class="card text-center" style="max-width: 40rem;">
+<div class="mx-auto" style="max-width: 23rem;">
+  <div class="card text-center">
    <div class="card-body">
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -24,12 +24,12 @@
             <%= f.submit "Log in", class: "btn btn-secondary" %>
           </div>
        </div>
-      </div><br/>
+      </div><br/><br>
 
     <% end %>
     <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
       <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
-    <% end -%><br/><br/><br/>
+    <% end -%>
 
     <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
       Don't have an account? <%= link_to "Sign up", new_registration_path(resource_name) %><br />
