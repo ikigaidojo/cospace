@@ -36,5 +36,9 @@ RSpec.describe Room, type: :model do
   it "should make sure room 'has_many' room_booking" do
     should have_many(:room_bookings)
   end
+
+  it "should belongs_to admin" do
+    should belong_to(:admin)
+  end
   
 end
