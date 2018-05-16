@@ -69,5 +69,9 @@ RSpec.describe Invoice, type: :model do
     should have_many(:payment_confirmations)
   end
 
+  it "should 'belongs_to' admin" do
+    should belong_to(:admin)
+  end
+
 end
 

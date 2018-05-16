@@ -7,7 +7,7 @@ class CreatePaymentConfirmations < ActiveRecord::Migration[5.1]
       t.datetime   :date_issued
       t.references :member
       t.references :invoice
-
+      
       t.timestamp
     end
   end
