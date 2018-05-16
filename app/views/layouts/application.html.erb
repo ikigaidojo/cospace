@@ -6,16 +6,6 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <style>
-      body {
-        padding-top: 54px;
-      }
-      @media (min-width: 992px) {
-        body {
-          padding-top: 56px;
-        }
-      }
-    </style>
   </head>
 
   <body>
@@ -30,14 +20,17 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <%= link_to "Home", root_url, class: "nav-link" %>
-            </li>
             <%- if current_member %>
+            <li class="nav-item active">
+              <%= link_to "Member", root_url, class: "nav-link" %>
+            </li>
             <li class="nav-item">
               <%= link_to "Logout", destroy_member_session_path, class: "nav-link", method: :delete, data: { confirm: "Are you sure?" } %>
             </li>
             <% else %>
+            <li class="nav-item active">
+              <%= link_to "Home", root_url, class: "nav-link" %>
+            </li>
             <li class="nav-item">
               <%= link_to "Sign in", new_member_session_path, class: "nav-link" %>
             </li>
@@ -56,9 +49,42 @@
       </div>
     </nav>
 
+     <div id="wrapper">
+      <!-- Sidebar -->
+      <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+          <li class="sidebar-brand">
+            <a href="#">Dashboard</a>
+          </li>
+          <li>
+              <a href="#">Invoice</a>
+          </li>
+          <li>
+              <a href="#">Calendar</a>
+          </li>
+          <li>
+              <a href="#">Profile</a>
+          </li>
+          <li>
+              <a href="#">Settings</a>
+          </li>
+          <li>
+              <%= link_to 'About', page_path('about') %>
+          </li>
+          <li>
+              <%= link_to 'Contact', page_path('contact') %>
+          </li>
+        </ul>
+      </div>
+        <!-- /#sidebar-wrapper -->
+    
     <!-- Page Content -->
-    <div class="container">
+    <div id="page-content-wrapper">
+    <div class="container-fluid">
       <div class="row">
+        <%- if current_member %>
+        <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
+        <% end %>
         <div class="col-lg-12 text-center">
           <!-- style/design is temporary we can change whenever we want -->
           <div style="font-size: 12px;">
@@ -69,6 +95,16 @@
         </div>
       </div>
     </div>
+  </div>
+
+  </div>
+    <!-- /#wrapper -->
     
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
   </body>
 </html>
