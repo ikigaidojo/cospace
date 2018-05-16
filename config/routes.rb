@@ -6,6 +6,6 @@ Rails.application.routes.draw do
 
   get '/index', to: 'index#index'
 
-  devise_for :members, controllers: { registrations: 'member/registrations' }
+  devise_for :members, controllers: { registrations: 'members/registrations' }
 
 end

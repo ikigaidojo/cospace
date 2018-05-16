@@ -3,12 +3,12 @@ require 'rails_helper'
 RSpec.describe Member, type: :model do
         
   before :each do
-    @first    = "Steve"
-    @last     = "Jobs"
-    @phone    = "0123456789"
-    @email    = "steve.jobs@apple.com"
-    @password = "password"
-    @Time     = Time.zone.now
+    @first      = "Steve"
+    @last       = "Jobs"
+    @phone      = "0123456789"
+    @email      = "steve.jobs@apple.com"
+    @password   = "password"
+    @time_created  = Time.zone.now
     @gender   = "male"
    
     @member = Member.create do |m|
@@ -17,8 +17,9 @@ RSpec.describe Member, type: :model do
       m.phone_number = @phone
       m.email        = @email
       m.password     = @password
-      m.time_created = @time_created
+      m.password_confirmation = @password
       m.gender       = @gender
+      m.confirmed_at = @Time
     end
   end
     
@@ -47,10 +48,6 @@ RSpec.describe Member, type: :model do
 
   it "should have a password attribute" do
     expect(@member.password).to eq @password
-  end
-
-  it "should have a time_created attribute" do
-    expect(@member.time_created).to eq @time
   end
 
   it "should have a gender attribute" do
@@ -91,7 +88,6 @@ RSpec.describe Member, type: :model do
     expect(@member.valid?).to eq false
   end
 
-
   it 'has a unique email' do
     #just to make test make more sense
     @member.email               = @email 
@@ -117,6 +113,10 @@ RSpec.describe Member, type: :model do
     should have_many(:payment_confirmations)
   end
 
+  it "should have many invoices" do
+    should have_many(:invoices)
+  end
+  
   it "should have many resource boookings" do
     should have_many(:resource_bookings)
   end
@@ -128,5 +128,8 @@ RSpec.describe Member, type: :model do
   it "should make sure member 'has_many' event_attendee" do
     should have_many(:event_attendees)
   end
-  
+
+  it "should 'belongs_to admin' " do
+    should belong_to(:admin)
+  end
 end # end .describe
