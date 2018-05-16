@@ -1,7 +1,7 @@
 class Event < ApplicationRecord
 
   has_many :event_attendees
-  belongs_to :member
-  belongs_to :admin
+  belongs_to :member, optional: true
+  belongs_to :admin, optional: true
   
 end

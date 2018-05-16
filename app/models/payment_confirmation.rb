@@ -1,4 +1,4 @@
   class PaymentConfirmation < ApplicationRecord
-  belongs_to :member
-  belongs_to :invoice
+  belongs_to :member,  optional: true
+  belongs_to :invoice, optional: true
 end 
