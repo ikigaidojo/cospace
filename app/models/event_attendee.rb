@@ -1,6 +1,6 @@
 class EventAttendee < ApplicationRecord
 
-  belongs_to :event
-  belongs_to :member
+  belongs_to :event, optional: true
+  belongs_to :member, optional: true
 
 end

@@ -1,9 +1,9 @@
 
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
+@import "simple_calendar";
 
 // This custom is only temporary solution
-
   body {
               padding-top: 54px;
               overflow-x: hidden;
@@ -128,3 +128,4 @@
     margin-right: 0;
   }
 }
+

@@ -20,7 +20,6 @@ RSpec.describe Invoice, type: :model do
     end
   end
 
-
   it "should create an invoice model" do
     expect(@invoice.valid?).to eq true
     expect(@invoice.save).to eq true
@@ -66,8 +65,13 @@ RSpec.describe Invoice, type: :model do
     should belong_to(:member)
   end
 
+  it "should have many payment confirmations" do
+    should have_many(:payment_confirmations)
+  end
+
   it "should 'belongs_to' admin" do
     should belong_to(:admin)
   end
+
 end
 

@@ -43,11 +43,6 @@ gem "jbuilder", "~> 2.5"
 # Use Capistrano for deployment
 # gem "capistrano-rails", group: :development
 
-gem 'devise'   # https://github.com/plataformatec/devise#getting-started
-
-gem "simple_calendar", "~> 2.0" # https://github.com/excid3/simple_calendar
-
-
 group :development, :test do
 
   # Call "byebug" anywhere in the code to stop execution and get a debugger console
@@ -58,7 +53,7 @@ group :development, :test do
   gem "selenium-webdriver"
 
   gem "rspec-rails",      "3.7.2"                  # https://github.com/rspec/rspec-rails 
-  gem "guard-rspec",      "4.7.3", require: false  # https://github.com/guard/guard-rspec
+  gem "guard-rspec",      "4.7.3",  require: false # https://github.com/guard/guard-rspec
   gem "awesome_print",    "1.8.0"                  # https://github.com/awesome-print 
   gem 'simplecov',        "0.16.1", require: false # https://github.com/colszowka/simplecov
   gem "shoulda-matchers", "3.1.2"                  # https://github.com/thoughtbot/shoulda-matchers
@@ -77,6 +72,8 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+gem "devise",             "4.4.3"                  # https://github.com/plataformatec/devise#getting-started
+gem "simple_calendar",    "2.2.7"                  # https://github.com/excid3/simple_calendar
 gem "bootstrap",          "4.1.1"                  # https://github.com/twbs/bootstrap  
 gem 'high_voltage',       "3.1.0"                  # https://github.com/thoughtbot/high_voltage
 gem 'jquery-rails'                                 # https://github.com/rails/jquery-rails

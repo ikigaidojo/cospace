@@ -26,6 +26,10 @@ RSpec.describe Admin, type: :model do
     expect(@member.email).to eq @email
   end
 
+  it "should have many units" do
+    should have_many(:units)
+  end
+
   it "should 'have_many' rooms" do
     should have_many(:rooms)
   end
@@ -34,4 +38,8 @@ RSpec.describe Admin, type: :model do
     should have_many(:resources)
   end
 
+  it "should 'have_many' members" do
+    should have_many(:members)
+  end
+  
 end

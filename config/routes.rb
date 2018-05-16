@@ -8,4 +8,12 @@ Rails.application.routes.draw do
 
   devise_for :members, controllers: { registrations: 'members/registrations' }
 
+  resources :members, :only => [] do
+    collection do
+      get "check_your_email"
+    end
+  end
+
+  get 'calendars/calendar'
+
 end
