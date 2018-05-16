@@ -3,12 +3,12 @@ require 'rails_helper'
 RSpec.describe Member, type: :model do
         
   before :each do
-    @first    = "Steve"
-    @last     = "Jobs"
-    @phone    = "0123456789"
-    @email    = "steve.jobs@apple.com"
-    @password = "password"
-    @Time     = Time.zone.now
+    @first      = "Steve"
+    @last       = "Jobs"
+    @phone      = "0123456789"
+    @email      = "steve.jobs@apple.com"
+    @password   = "password"
+    @time_created  = Time.zone.now
     @gender   = "male"
    
     @member = Member.create do |m|
@@ -127,5 +127,9 @@ RSpec.describe Member, type: :model do
 
   it "should make sure member 'has_many' event_attendee" do
     should have_many(:event_attendees)
+  end
+
+  it "should 'belongs_to admin' " do
+    should belong_to(:admin)
   end
 end # end .describe

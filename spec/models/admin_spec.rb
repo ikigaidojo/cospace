@@ -34,4 +34,8 @@ RSpec.describe Admin, type: :model do
     should have_many(:resources)
   end
 
+  it "should 'have_many' members" do
+    should have_many(:members)
+  end
+  
 end
