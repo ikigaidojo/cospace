@@ -63,15 +63,6 @@ RSpec.describe Member, type: :model do
     expect(@member.valid?).to eq false
   end
 
-  it "needs a last_name when filling out form" do  
-    @member.first_name      = "Steve"
-    @member.last_name       = nil  # if nil is changed to a last name, this should fail 
-    @member.email           = "steve.jobs@apple.com"
-    @member.save
-
-    expect(@member.valid?).to eq false
-  end
-
   it "needs an email when filling out form" do  
     @member.last_name       = "name"
     @member.first_name      = "mate"    
