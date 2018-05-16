@@ -88,7 +88,6 @@ RSpec.describe Member, type: :model do
     expect(@member.valid?).to eq false
   end
 
-
   it 'has a unique email' do
     #just to make test make more sense
     @member.email               = @email 
@@ -114,6 +113,10 @@ RSpec.describe Member, type: :model do
     should have_many(:payment_confirmations)
   end
 
+  it "should have many invoices" do
+    should have_many(:invoices)
+  end
+  
   it "should have many resource boookings" do
     should have_many(:resource_bookings)
   end
