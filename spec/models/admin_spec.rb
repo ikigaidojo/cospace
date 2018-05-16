@@ -26,4 +26,8 @@ RSpec.describe Admin, type: :model do
     expect(@member.email).to eq @email
   end
 
+  it "should have many units" do
+    should have_many(:units)
+  end
+
 end
