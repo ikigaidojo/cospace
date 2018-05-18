@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  
+
+  get 'invoices/admin_index'
+  get 'invoices/index'
   #get 'profiles/index'
+
 
   get 'index/index'
   root to: 'index#index'
