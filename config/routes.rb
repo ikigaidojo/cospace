@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
   
+  get 'settings/index'
+
+  get 'settings/basic'
+
+  get 'settings/notifications'
+
+  get 'settings/payment_methods'
+
+  get 'settings/password_reset'
+
   get 'index/index'
   root to: 'index#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
