@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  #get 'profiles/index'
+
   get 'index/index'
   root to: 'index#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -11,6 +13,12 @@ Rails.application.routes.draw do
   resources :members, :only => [] do
     collection do
       get "check_your_email"
+    end
+  end
+
+  resources :profiles, :only => [] do
+    collection do
+      get "index"
     end
   end
 
