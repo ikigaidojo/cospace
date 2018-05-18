@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  
-  get 'invoices/admin_index'
 
+  get 'invoices/admin_index'
   get 'invoices/index'
+  #get 'profiles/index'
+
 
   get 'index/index'
   root to: 'index#index'
@@ -15,6 +16,12 @@ Rails.application.routes.draw do
   resources :members, :only => [] do
     collection do
       get "check_your_email"
+    end
+  end
+
+  resources :profiles, :only => [] do
+    collection do
+      get "index"
     end
   end
 

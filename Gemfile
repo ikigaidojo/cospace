@@ -57,6 +57,7 @@ group :development, :test do
   gem "awesome_print",    "1.8.0"                  # https://github.com/awesome-print 
   gem 'simplecov',        "0.16.1", require: false # https://github.com/colszowka/simplecov
   gem "shoulda-matchers", "3.1.2"                  # https://github.com/thoughtbot/shoulda-matchers
+  gem "faker",            "1.8.7"                  # https://github.com/stympy/faker
 end
 
 group :development do
