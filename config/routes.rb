@@ -32,4 +32,11 @@ Rails.application.routes.draw do
   get 'invoices/index'
   #get 'profiles/index'
 
+  resources :calendars, :only => [] do
+    collection do
+      get "calendar"
+      get "show_spare"
+    end
+  end
+
 end

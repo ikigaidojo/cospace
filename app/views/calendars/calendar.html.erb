@@ -3,20 +3,12 @@
 <br>
 <br>
 <%= month_calendar do |date| %>
-  <%= date.day %>
+  <%= link_to date.day, show_spare_calendars_path(this_day: date), :remote => true %>
 <% end %>
 
 <br><br>
 
-<div>
-  <ol class="list">
-    <li>insert list of avaliable days here</li>
-    <li>insert list of avaliable days here</li>
-    <li>insert list of avaliable days here</li>
-    <li>insert list of avaliable days here</li>
-    <li>insert list of avaliable days here</li>
-  </ol>
-</div>
+
 <br>
 <br>
 <br>
@@ -24,6 +16,12 @@
 
       <div class="container-fluid">
         <div class="row">
+          <div id="avaliable_rooms">
+            <ul class ="list-group">
+              <li class = "list-item">Select a day to show unbooked rooms</li>
+              
+            </ul>
+          </div>
           <div class="col-12">
             <br>
             <div class="btn-group">
