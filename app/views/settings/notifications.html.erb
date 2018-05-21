@@ -1,2 +1,67 @@
-<h1>Settings#notifications</h1>
-<p>Find me in app/views/settings/notifications.html.erb</p>
+<div class="col-12">
+  <h1 class="text-left font-weight-bold"> Account Settings </h1>
+    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+      <li class="nav-item">
+        <%= link_to 'Account Information', settings_basic_path(@basic), :class => "btn" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Password Reset', settings_password_reset_path, :class => "btn" %>
+      </li>
+<!--<div class="col-12">
+  <h1 class="text-left font-weight-bold"> Account Settings </h1>
+    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+      <li class="nav-item" id="pills-basic-tab" data-toggle="pill"  role="tab" aria-controls="pills-basic" aria-selected="true">
+         for research on how to attach <a class="nav-link active" id="pills-basic-tab" data-toggle="pill" href="#pills-basic" role="tab" aria-controls="pills-basic" aria-selected="true">Account Information</a> 
+        <%= link_to 'Account Information', settings_basic_path, class: "nav-link" %>
+      </li>-->
+      <li class="nav-item">
+        <%= link_to 'Notifications', settings_notifications_path, :class => "btn" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Payment Methods', settings_payment_methods_path, :class => "btn" %>
+      </li>
+    </ul>
+</div>
+<!-- Emails -->
+<div class="container-fluid">
+  <h5 class="text-left font-weight-bold">Notifications</h5>
+    <div class="form-group row">
+      <div class="col-sm-1"></div>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input class="form-check-input" type="checkbox" checked> <b>Reminders</b> - Receive booking reminders, requests to write a review, pricing notices, and other reminders related to your activities on CoSpace in your email.
+        </label>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-1"></div>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input class="form-check-input" type="checkbox" checked> <b>Invoices</b> - Quickly received your invoices.
+        </label>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-1"></div>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input class="form-check-input" type="checkbox" checked> <b>Promotions</b> - Receive coupons, promotions, surveys, product updates, and inspiration from CoSpace and its partners.Find out first about new products.
+        </label>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-1"></div>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input class="form-check-input" type="checkbox" checked> <b>Policy and Community</b> -Receive updates on cospace regulations and stay informed about events in CoSpace       
+        </label>
+       </div>
+    </div>
+    <div class="form-group container-fluid">
+        <div class="col-sm-2">
+          <button type="submit" class="btn btn-success">Save</button>
+        </div>    
+      </div>
+  
+</div>
+
