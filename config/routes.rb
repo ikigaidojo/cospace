@@ -1,10 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'invoices/admin_index'
-  get 'invoices/index'
-  #get 'profiles/index'
-
-
   get 'index/index'
   root to: 'index#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -26,5 +21,15 @@ Rails.application.routes.draw do
   end
 
   get 'calendars/calendar'
+  
+  get 'settings/index'
+  get 'settings/basic'
+  get 'settings/notifications'
+  get 'settings/payment_methods'
+  get 'settings/password_reset'
+
+  get 'invoices/admin_index'
+  get 'invoices/index'
+  #get 'profiles/index'
 
 end
