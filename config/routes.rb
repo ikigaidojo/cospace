@@ -1,14 +1,4 @@
 Rails.application.routes.draw do
-  
-  get 'settings/index'
-
-  get 'settings/basic'
-
-  get 'settings/notifications'
-
-  get 'settings/payment_methods'
-
-  get 'settings/password_reset'
 
   get 'index/index'
   root to: 'index#index'
@@ -24,6 +14,22 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :profiles, :only => [] do
+    collection do
+      get "index"
+    end
+  end
+
   get 'calendars/calendar'
+  
+  get 'settings/index'
+  get 'settings/basic'
+  get 'settings/notifications'
+  get 'settings/payment_methods'
+  get 'settings/password_reset'
+
+  get 'invoices/admin_index'
+  get 'invoices/index'
+  #get 'profiles/index'
 
 end
