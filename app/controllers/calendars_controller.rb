@@ -7,6 +7,8 @@ class CalendarsController < ApplicationController
     respond_to do |format|
       format.js
     end
+    # sends to show_spare.js.erb instead of reloading calendar.html.erb,
+    # also assigns the sent date as @this_day
   end
 
 end

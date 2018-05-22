@@ -41,7 +41,7 @@ room_booking_7 = RoomBooking.create(name: "Booking7", description: Faker::Lorem.
 room_booking_8 = RoomBooking.create(name: "Booking8", description: Faker::Lorem.sentence, price: 25000, location: "Launch Garage", date_booked: DateTime.now )
 
 
-# Mandalore Room and Kashyyyk Room booked by Mara on 06/25/2018
+# Mandalore Room and Kashyyyk Room booked by Mara on 2018/06/25
 room_booking = RoomBooking.create(date_booked: DateTime.parse("2018-06-25"))
 mandalore_room.room_bookings << room_booking
 mara_member.room_bookings << room_booking
@@ -52,7 +52,7 @@ mara_member.room_bookings << room_booking
 
 
 
-# Endor Room, Hoth Room and Tatooine Room booked by Tim on 06/26/2018
+# Endor Room, Hoth Room and Tatooine Room booked by Tim on 2018/26/06
 room_booking = RoomBooking.create(date_booked: DateTime.parse("2018-06-26"))
 endor_room.room_bookings << room_booking
 tim_member.room_bookings << room_booking
