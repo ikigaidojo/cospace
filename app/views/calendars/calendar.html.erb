@@ -19,26 +19,17 @@ note: "remote => true" instructs rails not to reload and instead lets Ajax run. 
 
 
       <div class="container-fluid">
+
+        <!-- gets replaced by show_spare.js.erb what a calendar day is clicked-->
+        <div id="available_rooms">
+          <ul class ="list-group">
+            <li class = "list-group-item">Click a day to see available rooms</li>
+          </ul>
+        </div>
+        <!-- end of div that gets replaced -->
+
         <div class="row">
-
-          <!-- gets replaced by show_spare.js.erb what a calendar day is clicked-->
-          <div id="available_rooms">
-            <ul class ="list-group">
-              <li class = "list-group-item">Click a day to see available rooms</li>
-            </ul>
-          </div>
-          <!-- end of div that gets replaced -->
-
           <div class="col-12"><br>
-            <div class="btn-group">
-              <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopuptrue" aria-expanded="false">
-                Select room
-              </button>
-              <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">These are all sample rooms</a>
-                <a class="dropdown-item" href="#">A1</a>
-              </div>
-            </div> 
             <button class="btn btn-primary">
               Book now
             </button><br><br>
