@@ -10,17 +10,17 @@ module CalendarsHelper
       end
     end
 
-
     # build the html using ruby strings
     html = '<div id = "available_rooms" >
               <div class="row">'
 
 
-        ######################## ----- list of rooms  ----- ########################
-        # adds div classes for the LIST of rooms
-        html.concat("<div class='col-4'>
-                      <div class='list-group' id='list-tab' role='tablist'>
-                        <p> available on #{date}</p>")
+      ######################## ----- list of rooms  ----- ########################
+      # adds div classes for the LIST of rooms
+      html.concat("<div class='col-4'>
+                    <div class='list-group' id='list-tab' role='tablist'>
+                      <h5> Select a day </h5>
+                      <small> These rooms are available on #{date}</small>")
 
         
       # create list of room names. 
@@ -61,10 +61,55 @@ module CalendarsHelper
                       Description: #{ description }
                       <br>
                       Price: $#{ price } 
-                      <br></p>              
-                    </div>") 
-      end
+                      <br></p>") 
 
+        #create "book now" that pops up the modal
+        html.concat("<br> 
+                      <button type='button'
+                      class='btn btn-primary' 
+                      data-toggle='modal' 
+                      data-target='##{room_name}Modal'>
+                      Book #{room_name} 
+                    </button>") 
+
+        # create  modal for "book now" button
+        html.concat("<div 
+                      class='modal fade' 
+                      id='#{room_name}Modal' 
+                      tabindex='-1' role='dialog' 
+                      aria-labelledby='exampleModalLabel' 
+                      aria-hidden='true'>
+                      <div class='modal-dialog' role='document'>
+                        <div class='modal-content'>
+                          <div class='modal-header'>
+
+                            <h5 class='modal-title' id='#{room_name}ModalLabel'>Confirm your booking</h5>
+                            <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                              <span aria-hidden='true'>&times;</span>
+                            </button>
+                          </div>
+                          <div class='modal-body'>
+                            <br> 
+                            You're reserving #{room_name}
+                            <br>
+                            On Date: #{date}
+                            <br>
+                            For $#{price}
+                            <br>
+                            <br>
+                          </div>
+                          <div class='modal-footer'>
+                            <button type='button' class='btn btn-secondary' data-dismiss='modal'>Cancel</button>
+                            <button type='button' class='btn btn-warning'>Confirm</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>")
+
+        html.concat("</div>") #ending of the fade panel
+
+        
+        end
       #end divs for descriptions
       html.concat('</div> </div>')
 
