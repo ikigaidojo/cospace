@@ -23,10 +23,6 @@ Rails.application.routes.draw do
   get 'calendars/calendar'
   
   get 'settings/index'
-  get 'settings/basic'
-  get 'settings/notifications'
-  get 'settings/payment_methods'
-  get 'settings/password_reset'
 
   get 'invoices/admin_index'
   get 'invoices/index'
