@@ -1,2 +1,154 @@
-<h1>Settings#index</h1>
-<p>Find me in app/views/settings/index.html.erb</p>
+<div class="col-12">
+  <h1 class="text-left font-weight-bold"> Account Settings </h1>
+    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="pills-basic-tab" data-toggle="pill" href="#pills-basic" role="tab" aria-controls="pills-basic" aria-selected="false">Account Information</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="pills-password-tab" data-toggle="pill" href="#pills-password" role="tab" aria-controls="pills-password" aria-selected="false">Password Reset</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="pills-notification-tab" data-toggle="pill" href="#pills-notification" role="tab" aria-controls="pills-notification" aria-selected="false">Notification</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="pills-payment-tab" data-toggle="pill" href="#pills-payment" role="tab" aria-controls="pills-payment" aria-selected="false">Payment Methods</a>
+      </li>
+    </ul>
+</div>
+
+<!-- Tab content -->
+<div class="tab-content" id="pills-tabContent">
+  <!-- Account informaton tab pane -->
+  <div class="tab-pane fade show active" id="pills-basic" role="tabpanel" aria-labelledby="pills-basic-tab">
+    <div class="container-fluid">
+      <h3 class="text-left font-weight-bold">Account Information</h3>
+      <br/>
+        <form>
+          <div class="form-group row container">
+            <label class="col-sm-2 col-form-label font-weight-bold text-right">First Name</label>
+            <div class="col-sm-3">
+              <input type="email" class="form-control" placeholder="First Name">
+            </div>
+            <label class="col-sm-2 col-form-label font-weight-bold text-right">Last Name</label>
+            <div class="col-sm-3">
+              <input type="email" class="form-control" placeholder="Last Name">
+            </div>
+          </div>   
+          <!--<small id="passwordHelpBlock" class="form-text text-muted col text-left">
+          Your public profile only shows your first name. When you request a booking, Launch Garage will see your first and last name.
+          </small> -->
+          <div class="form-group row container">
+            <label class="col-sm-2 col-form-label font-weight-bold text-right">Email Address</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" placeholder="Email">
+            </div>
+          </div>
+          <div class="form-group row container">
+            <label class="col-sm-2 col-form-label font-weight-bold text-right">I am</label>
+            <div class="col-sm-4">
+              <select class="form-control">
+              <option value="Male">Gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Male">Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group row container">
+            <label class="col-sm-2 col-form-label font-weight-bold text-right">Phone Number</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" placeholder="Phone Number">
+            </div>
+          </div>
+          <div class="form-group row container">
+            <div class= "col-sm-5">
+              <button type="submit" class="btn btn-success">Save</button>
+            </div>
+          </div>
+          <div class="form-group row container">
+            <div class="col-sm-6">
+              <button type="submit" class="btn btn-danger">Deactivate Account</button>
+            </div>    
+          </div>
+        </form>
+    </div>
+  </div>
+  <!-- Password reset tab pane -->
+  <div class="tab-pane fade" id="pills-password" role="tabpanel" aria-labelledby="pills-password-tab">
+    <div class="container-fluid">
+      <h3 class= "text-left font-weight-bold">Change Your Password</h3>
+      <form>
+        <div class="form-group row text-right">
+          <label class="col-sm-2 col-form-label">Old Password</label>
+            <div class="col-sm-4">
+              <input type="password" class="form-control" placeholder="">
+            </div>
+        </div>
+        <div class="form-group row text-right">
+          <label class="col-sm-2 col-form-label">New Password</label>
+            <div class="col-sm-4">
+              <input type="password" class="form-control" placeholder="">
+            </div>
+        </div>
+        <div class="form-group row text-right">
+          <label class="col-sm-2 col-form-label">Confirm Password</label>
+            <div class="col-sm-4">
+              <input type="password" class="form-control" placeholder="">
+            </div>
+        </div>
+      </form>
+    </div>
+    <div class="form-group row container">
+      <div class="col-sm-9">
+        <button type="submit" class="btn btn-danger">Update Password</button>
+      </div>    
+    </div>
+  </div>
+  <!-- Notification tab pane -->
+  <div class="tab-pane fade" id="pills-notification" role="tabpanel" aria-labelledby="pills-notification-tab">
+    <div class="container-fluid">
+      <h3 class="font-weight-bold text-left">Email Notification:</h3>
+        <div class="form-group row">
+          <div class="col-sm-2"></div>
+          <div class="col-sm-10 text-left">
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="checkbox" checked> <b>Reminder emails</b> - Stay up to date with your co-space.
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-2"></div>
+          <div class="col-sm-10 text-left">
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="checkbox" checked> <b>Invoice emails</b> - Quickly received your invoices.
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-2"></div>
+          <div class="col-sm-10 text-left">
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="checkbox" checked> <b>News emails</b> - Find out first about new products.
+              </label>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+  <!-- Payment tab pane -->
+  <div class="tab-pane fade" id="pills-payment" role="tabpanel" aria-labelledby="pills-payment-tab">
+    
+
+
+  </div>
+
+</div> <!-- tab content end div -->
+
+
+
+
