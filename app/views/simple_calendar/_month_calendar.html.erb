@@ -1,12 +1,11 @@
 <div class="simple-calendar">
   <div class="calendar-heading">
     <p>
-
-      <div class="btn btn-warning"><%= link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view %></div>
+      <%= link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view %>
 
       <span class="calendar-title"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
       
-      <div class="btn btn-warning"><%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view %></div>
+      <%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view %>
    </p>
   </div>
 
@@ -24,9 +23,7 @@
         <tr>
           <% week.each do |day| %>
             <%= content_tag :td, class: calendar.td_classes_for(day) do %>
-                <div class="btn btn-secondary">
-                  <% block.call day, sorted_events.fetch(day, []) %>
-                </div>
+              <% block.call day, sorted_events.fetch(day, []) %>
             <% end %>
           <% end %>
         </tr>
