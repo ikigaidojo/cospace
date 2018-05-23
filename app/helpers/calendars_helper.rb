@@ -150,7 +150,7 @@ module CalendarsHelper
                     console.log("Id of member is: "      +   member_id )
 
                     // after all argument are sent to database, member is routed to invoices
-                    //location.href = "/invoices/index";
+                    location.href = "/invoices/index";
                     
                   } 
                 </script>')
