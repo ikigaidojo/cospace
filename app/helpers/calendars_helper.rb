@@ -19,7 +19,7 @@ module CalendarsHelper
       # adds div classes for the LIST of rooms
       html.concat("<div class='col-4'>
                     <div class='list-group' id='list-tab' role='tablist'>
-                      <h5> Select a day </h5>
+                      <h5> Select a room </h5>
                       <small> These rooms are available on #{date}</small>")
 
         
@@ -99,8 +99,14 @@ module CalendarsHelper
                             <br>
                           </div>
                           <div class='modal-footer'>
-                            <button type='button' class='btn btn-secondary' data-dismiss='modal'>Cancel</button>
-                            <button type='button' class='btn btn-success' href='#' >Confirm</button>
+                            <button type='button' 
+                              class='btn btn-secondary' 
+                              data-dismiss='modal'> Cancel </button>
+                            <button 
+                            type='button' 
+                            class='btn btn-success' 
+                            value='Input Button' 
+                            onclick='confirm_booking()'> Confirm </button>                            
                           </div>
                         </div>
                       </div>
@@ -116,6 +122,15 @@ module CalendarsHelper
 
     # end divs for "available_rooms" and "row"
     html.concat('</div> </div>') 
+
+    #creates the confirm_booking function, which sends user to "mybookings"( old invoice) page
+    html.concat('<script>
+                  function confirm_booking() {
+                    
+                    location.href = "/invoices/index";
+                    
+                  } 
+                </script>')
 
     return html.html_safe 
   end #function end
