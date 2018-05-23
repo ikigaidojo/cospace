@@ -78,3 +78,6 @@ gem "simple_calendar",    "2.2.7"                  # https://github.com/excid3/s
 gem "bootstrap",          "4.1.1"                  # https://github.com/twbs/bootstrap  
 gem 'high_voltage',       "3.1.0"                  # https://github.com/thoughtbot/high_voltage
 gem 'jquery-rails'                                 # https://github.com/rails/jquery-rails
+gem "bootstrap",          "4.1.1"                  # https://github.com/twbs/bootstrap 
+gem 'high_voltage',       "3.1.0"                  # https://github.com/thoughtbot/high_voltage 
+gem 'money',              "6.11.3"                 # https://github.com/RubyMoney/money
