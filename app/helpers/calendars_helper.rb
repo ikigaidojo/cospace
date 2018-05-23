@@ -110,8 +110,7 @@ module CalendarsHelper
                             <button 
                             type='button' 
                             class='btn btn-success' 
-                            value='Input Button'")
-        html.concat("
+                            value='Input Button'
                             onclick='confirm_booking(
                               `#{room_name}`, 
                               `#{description}`, 
@@ -143,12 +142,12 @@ module CalendarsHelper
 
                     // to test if the function can pass our variables. 
 
-                    console.log(  "Room name is: "         +        name )
-                    console.log(  "Description is: "       + description )
-                    console.log(  "Price is: "             +       price )
-                    console.log(  "Date to be booked is: " +        date )
-                    console.log(  "Facilities include: "   +  facilities )
-                    console.log(  "Id of member is: "      +   member_id )
+                    console.log("Room name is: "         +        name )
+                    console.log("Description is: "       + description )
+                    console.log("Price is: "             +       price )
+                    console.log("Date to be booked is: " +        date )
+                    console.log("Facilities include: "   +  facilities )
+                    console.log("Id of member is: "      +   member_id )
 
                     // after all argument are sent to database, member is routed to invoices
                     //location.href = "/invoices/index";
