@@ -105,14 +105,15 @@ module CalendarsHelper
                             <button 
                             type='button' 
                             class='btn btn-success' 
-                            value='Input Button' 
-                            onclick='confirm_booking()'> Confirm </button>                            
+                            value='Input Button'")
+        html.concat("
+                            onclick='confirm_booking(`#{room_name}`, `#{description}`, `#{price}`, `#{date}`)'> Confirm </button>                            
                           </div>
                         </div>
                       </div>
                     </div>")
 
-        html.concat("</div>") #ending of the fade panel
+        html.concat('</div>') #ending of the fade panel
 
         
         end
@@ -125,8 +126,16 @@ module CalendarsHelper
 
     #creates the confirm_booking function, which sends user to "mybookings"( old invoice) page
     html.concat('<script>
-                  function confirm_booking() {
-                    
+                  function confirm_booking(name, description, price, date) {
+
+                    //just to test the function
+                    console.log("This is to test log")
+                    console.log("Room name is: " + name)
+                    console.log("Description is: " + description)
+                    console.log("Price is: " + price)
+                    console.log("Date to be booked is: " + date)
+
+                    // after all argument are sent to database, member is routed to invoices
                     location.href = "/invoices/index";
                     
                   } 
