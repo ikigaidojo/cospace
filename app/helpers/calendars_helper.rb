@@ -6,7 +6,7 @@ module CalendarsHelper
     Room.all.each do |room|
       room_booked = room.room_bookings.where(date_booked: DateTime.parse(date))
       if room_booked.empty? 
-        spare_rooms << [room.name, room.description, room.price]
+        spare_rooms << [room.name, room.description, room.price, room.facilities]
       end
     end
 
@@ -28,6 +28,7 @@ module CalendarsHelper
         room_name = room[0]
         description = room[1]
         price = room[2]
+        facilities = room[3]
 
         html.concat(
           "<a 
@@ -51,6 +52,8 @@ module CalendarsHelper
         room_name = room[0]
         description = room[1]
         price = ('%.2f' % (room[2].to_i/100.0)) # or install monery gem
+        member_id = "not defined yet"
+        facilities = room[3]
 
         html.concat("<div 
                       class='tab-pane fade' 
@@ -59,6 +62,8 @@ module CalendarsHelper
                       <h1> #{ room_name } </h1>
                       <br>
                       Description: #{ description }
+                      <br>
+                      Facilities include: #{ facilities }
                       <br>
                       Price: $#{ price } 
                       <br></p>") 
@@ -107,7 +112,15 @@ module CalendarsHelper
                             class='btn btn-success' 
                             value='Input Button'")
         html.concat("
-                            onclick='confirm_booking(`#{room_name}`, `#{description}`, `#{price}`, `#{date}`)'> Confirm </button>                            
+                            onclick='confirm_booking(
+                              `#{room_name}`, 
+                              `#{description}`, 
+                              `#{price}`, 
+                              `#{date}`, 
+                              `#{member_id}`,
+                              `#{facilities}`
+                            )'> Confirm </button>    
+
                           </div>
                         </div>
                       </div>
@@ -126,17 +139,19 @@ module CalendarsHelper
 
     #creates the confirm_booking function, which sends user to "mybookings"( old invoice) page
     html.concat('<script>
-                  function confirm_booking(name, description, price, date) {
+                  function confirm_booking(name, description, price, date, member_id, facilities) {
 
-                    //just to test the function
-                    console.log("This is to test log")
-                    console.log("Room name is: " + name)
-                    console.log("Description is: " + description)
-                    console.log("Price is: " + price)
-                    console.log("Date to be booked is: " + date)
+                    // to test if the function can pass our variables. 
+
+                    console.log(  "Room name is: "         +        name )
+                    console.log(  "Description is: "       + description )
+                    console.log(  "Price is: "             +       price )
+                    console.log(  "Date to be booked is: " +        date )
+                    console.log(  "Facilities include: "   +  facilities )
+                    console.log(  "Id of member is: "      +   member_id )
 
                     // after all argument are sent to database, member is routed to invoices
-                    location.href = "/invoices/index";
+                    //location.href = "/invoices/index";
                     
                   } 
                 </script>')
