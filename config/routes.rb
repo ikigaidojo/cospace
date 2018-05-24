@@ -35,4 +35,17 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :invoices, :only => [] do
+    collection do
+      post "invoices"
+      post "book_room"
+    end
+  end
+
 end
+
+
+
+
+
+

@@ -6,7 +6,7 @@ module CalendarsHelper
     Room.all.each do |room|
       room_booked = room.room_bookings.where(date_booked: DateTime.parse(date))
       if room_booked.empty? 
-        spare_rooms << [room.name, room.description, room.price, room.facilities]
+        spare_rooms << [room.name, room.description, room.price, room.facilities, room.id]
       end
     end
 
@@ -52,8 +52,9 @@ module CalendarsHelper
         room_name = room[0]
         description = room[1]
         price = ('%.2f' % (room[2].to_i/100.0)) # or install monery gem
-        member_id = "not defined yet"
+        member_id = current_member.id
         facilities = room[3]
+        room_id = room[4]
 
         html.concat("<div 
                       class='tab-pane fade' 
@@ -111,13 +112,7 @@ module CalendarsHelper
                             type='button' 
                             class='btn btn-success' 
                             value='Input Button'
-                            onclick='confirm_booking(
-                              `#{room_name}`, 
-                              `#{description}`, 
-                              `#{price}`, 
-                              `#{date}`, 
-                              `#{member_id}`,
-                              `#{facilities}`
+                            onclick='confirm_booking( `#{date}`, `#{room_id}`,`#{member_id}`,
                             )'> Confirm </button>    
 
                           </div>
@@ -136,23 +131,21 @@ module CalendarsHelper
     # end divs for "available_rooms" and "row"
     html.concat('</div> </div>') 
 
+    
     #creates the confirm_booking function, which sends user to "mybookings"( old invoice) page
     html.concat('<script>
-                  function confirm_booking(name, description, price, date, member_id, facilities) {
-
-                    // to test if the function can pass our variables. 
-
-                    console.log("Room name is: "         +        name )
-                    console.log("Description is: "       + description )
-                    console.log("Price is: "             +       price )
-                    console.log("Date to be booked is: " +        date )
-                    console.log("Facilities include: "   +  facilities )
-                    console.log("Id of member is: "      +   member_id )
-
-                    // after all argument are sent to database, member is routed to invoices
-                    location.href = "/invoices/index";
+                  function confirm_booking( date, room_id, member_id ) {
                     
+                    //post above parameters to invoices_controller
+                    $.post(`/invoices/book_room`,
+                      {date: JSON.stringify(date), 
+                      room_id: JSON.stringify(room_id),
+                      member_id: JSON.stringify(member_id)}
+                    );
+
+                    //https://stackoverflow.com/questions/32445021/how-to-post-javascript-data-to-a-rails-controller-action?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
                   } 
+
                 </script>')
 
     return html.html_safe 
