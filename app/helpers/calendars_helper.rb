@@ -43,7 +43,7 @@ module CalendarsHelper
 
 
       ######################## ----- descriptions  ----- ########################
-      # create divs for descriptoins
+      # create divs for descriptions
       html.concat("<div class='col-8'>
                     <div class='tab-content' id='nav-tabContent'>")
       
@@ -85,15 +85,16 @@ module CalendarsHelper
                       tabindex='-1' role='dialog' 
                       aria-labelledby='exampleModalLabel' 
                       aria-hidden='true'>
+
                       <div class='modal-dialog' role='document'>
                         <div class='modal-content'>
                           <div class='modal-header'>
-
                             <h5 class='modal-title' id='#{room_name}ModalLabel'>Confirm your booking</h5>
                             <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
                               <span aria-hidden='true'>&times;</span>
                             </button>
                           </div>
+
                           <div class='modal-body'>
                             <br> 
                             You're reserving #{room_name}
@@ -104,54 +105,46 @@ module CalendarsHelper
                             <br>
                             <br>
                           </div>
+
                           <div class='modal-footer'>
                             <button type='button' 
                               class='btn btn-secondary' 
-                              data-dismiss='modal'> Cancel </button>
+                              data-dismiss='modal'
+                            > Cancel </button>
+
                             <button 
                             type='button' 
                             class='btn btn-success' 
-                            value='Input Button'
-                            onclick='confirm_booking( `#{date}`, `#{room_id}`,`#{member_id}`,
-                            )'> Confirm </button>    
-
+                            value='Input Button' 
+                            onclick='confirm_booking( `#{date}`, `#{room_id}`,`#{member_id}`,)'
+                            > Confirm </button>    
                           </div>
+
                         </div>
                       </div>
                     </div>")
 
         html.concat('</div>') #ending of the fade panel
+      end # end of the loop that creates room descriptions
 
-        
-        end
       #end divs for descriptions
       html.concat('</div> </div>')
-
 
     # end divs for "available_rooms" and "row"
     html.concat('</div> </div>') 
 
-    
-    #creates the confirm_booking function, which sends user to "mybookings"( old invoice) page
+    #creates the confirm_booking function
     html.concat('<script>
                   function confirm_booking( date, room_id, member_id ) {
-                    
-                    //post above parameters to invoices_controller
-                    $.post(`/invoices/book_room`,
-                      {date: JSON.stringify(date), 
-                      room_id: JSON.stringify(room_id),
-                      member_id: JSON.stringify(member_id)}
-                    );
-
-                    //https://stackoverflow.com/questions/32445021/how-to-post-javascript-data-to-a-rails-controller-action?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
+                      $.post(`/invoices/book_room`, {
+                        date: JSON.stringify(date), 
+                        room_id: JSON.parse(room_id),
+                        member_id: JSON.parse(member_id)
+                      });
                   } 
-
                 </script>')
-
     return html.html_safe 
+    
   end #function end
-
-
-
 
 end #helper end

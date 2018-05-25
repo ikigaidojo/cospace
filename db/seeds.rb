@@ -15,7 +15,7 @@ wendy_member = Member.create(first_name: "Wendy", last_name: "Stanfield", phone_
 frida_member = Member.create(first_name: "Frida", last_name: "Roux",      phone_number: "541-345-5308", gender: "female", password: "frida.roux@yahoo.com",       email: "frida.roux@yahoo.com",       confirmed_at: DateTime.now)
  
 
-mandalore_room = Room.create(name: "Mandalore", description: Faker::Lorem.sentence, location: "Launch Garage", price: 95000, facilities: Faker::Lorem.sentence)
+mandalore_room = Room.create(name: "Mandalore", description: "Cozy room located at the back of launchgarage, othersie known as the engine room", location: "Launch Garage", price: 95000, facilities: "a tv, a airconditioner, some water from the water container, power, tables, refridgerator, white-board and markers.")
  kashyyyk_room = Room.create(name: "Kashyyyk",  description: Faker::Lorem.sentence, location: "Launch Garage", price: 85000, facilities: Faker::Lorem.sentence)
     endor_room = Room.create(name: "Endor",     description: Faker::Lorem.sentence, location: "Launch Garage", price: 75000, facilities: Faker::Lorem.sentence)
  tatooine_room = Room.create(name: "Tatooine",  description: Faker::Lorem.sentence, location: "Launch Garage", price: 65000, facilities: Faker::Lorem.sentence)
