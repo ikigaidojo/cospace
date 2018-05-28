@@ -6,9 +6,9 @@
       <h2 class=“card-title”>Sign in</h2>
       <p class=“card-text”>for cospace</p><br />
 
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Email" %> <br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Email", required: true %> <br />
 
-      <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Password" %> <br />
+      <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Password", required: true %> <br />
 
       <div class="row">
         <div class="col-6 text-left">
@@ -24,7 +24,8 @@
             <%= f.submit "Log in", class: "btn btn-secondary" %>
           </div>
        </div>
-      </div><br/><br>
+      </div>
+      <br/><br/>
 
     <% end %>
     <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
