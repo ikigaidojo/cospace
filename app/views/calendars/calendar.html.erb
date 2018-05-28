@@ -5,7 +5,8 @@
 <br>
 <br>
 <%= month_calendar do |date| %>
-  <%= link_to date.day, show_spare_calendars_path(this_day: date), :remote => true %>
+  <%= link_to date.day, show_spare_calendars_path(this_day: date),
+  :class => "calendar-cell btn btn-secondary container-fluid ", :remote => true %>
 <% end %>
 <!-- creates link on each calendar day which calls 'show_spare' in the calendar controller
 The 'show_spare_calendars_path' path works because it was defined in routes.rb.
