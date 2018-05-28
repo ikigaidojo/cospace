@@ -128,3 +128,21 @@
     margin-right: 0;
   }
 }
+
+.calendar-cell {
+  height: 100%;
+  background-color: transparent;
+  border-color: transparent;
+  color: grey;
+  font-size: 1.25em;
+}
+
+.calendar-cell :hover {
+  background-color: darkgrey;
+  color: white;  
+}
+
+.calendar-cell p {
+  padding: 200px;
+}
+
