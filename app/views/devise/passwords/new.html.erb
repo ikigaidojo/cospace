@@ -1,15 +1,17 @@
-<div class="mx-auto" style="max-width: 35rem;">
-  <div class="card text-center" style="max-width: 40rem;">
+<div class="mx-auto" style="max-width: 23rem;">
+  <div class="alert-danger">
+    <%= devise_error_messages! %>
+  </div>
+  <div class="card text-center">
     <div class="card-body">
 
       <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-        <%= devise_error_messages! %>
-        <h2 class=“card-title”>Forgot your password?</h2><br />
+        <h2 class="card-title">Forgot your password?</h2><br />
 
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Enter your email" %><br/>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Enter your email", required: true %><br/>
 
         <div class="actions">
-          <%= f.submit "Send me reset password instructions", class: "btn btn-secondary" %>
+          <%= f.submit "Send password reset instruction", class: "btn btn-secondary" %>
         </div>
       <% end %>
 
