@@ -3,26 +3,24 @@
     <%= devise_error_messages! %>
   </div>
   <div class="card text-center">
-   <div class="card-body">
+    <div class="card-body">
+      <h2 class="card-title">Resend confirmation instructions</h2>
 
-    <h2 class="card-title">Resend confirmation instructions</h2>
+      <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+        
+        <div class="field">
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: "form-control", placeholder: "Enter your email", required: true %>
+        </div>
+        <br>
 
-    <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-      
-      <div class="field">
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: "form-control", placeholder: "Enter your email", required: true %>
-      </div>
-      <br>
+        <div class="actions">
+          <%= f.submit "Send", class: "btn btn-secondary" %>
+        </div>
+      <% end %>
+        <br>
+        <br>
 
-      <div class="actions">
-        <%= f.submit "Send", class: "btn btn-secondary" %>
-      </div>
-    <% end %>
-      <br>
-      <br>
-
-    <%= render "devise/shared/links" %>
-
+      <%= render "devise/shared/links" %>
     </div>
   </div>
 </div>
