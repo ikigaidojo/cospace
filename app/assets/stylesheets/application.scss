@@ -142,7 +142,20 @@
   color: white;  
 }
 
-.calendar-cell p {
-  padding: 200px;
+.switch_month {
+  background-color: transparent;
+  border-color: transparent;
+  color: grey;
 }
+
+.switch_month:hover {
+  background-color: lightgrey;
+  border-color: lightgrey;
+  color: white;
+}
+
+
+
+
+
 
