@@ -77,6 +77,23 @@
   <div class="tab-pane fade" id="pills-password" role="tabpanel" aria-labelledby="pills-password-tab">
     <div class="container-fluid">
       <h3 class= "text-left font-weight-bold">Change Your Password</h3>
+      
+      <%= form_for(@member, url: { action: "update_password" } ) do |f| %>
+        <div class="field">
+          <%= f.label :password, "Password" %><br />
+          <%= f.password_field :password, :autocomplete => "off"  %>
+        </div>
+        <div class="field">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation %>
+        </div>
+        <div class="action_container">
+          <%= f.submit %>
+        </div>
+      <% end %>
+  </div>
+
+<!--
       <form>
         <div class="form-group row text-right">
           <label class="col-sm-2 col-form-label font-weight-bold">Old Password</label>
@@ -97,13 +114,14 @@
             </div>
         </div>
       </form>
-    </div>
+
     <div class="form-group row container">
       <div class="col-sm-9">
         <button type="submit" class="btn btn-danger">Update Password</button>
       </div>    
     </div>
   </div>
+  -->
   <!-- Notification tab pane -->
   <div class="tab-pane fade" id="pills-notification" role="tabpanel" aria-labelledby="pills-notification-tab">
     <div class="container-fluid">

@@ -42,6 +42,18 @@ Rails.application.routes.draw do
     end
   end
 
+=begin
+  resource :setting, :only => [:edit] do
+    collection do
+      patch 'update password'
+    end
+  end
+=end
+  resource :setting, only: [:edit] do
+    collection do
+      patch 'update_password'
+    end  
+  end  
 end
 
 
