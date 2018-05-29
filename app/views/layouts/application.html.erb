@@ -6,6 +6,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
   </head>
 
   <body>
@@ -84,10 +85,13 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> 
 
   </div>
     <!-- /#wrapper -->
+    <%- unless current_member %>
+    <%= render "pages/footer" %>
+    <% end %>
     
     <script>
     $("#menu-toggle").click(function(e) {
