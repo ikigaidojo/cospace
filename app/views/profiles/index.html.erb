@@ -14,24 +14,27 @@
     <title>Cospace</title>
   </head>
   <body>
-    <div class="col-12"> <!-- profile ciode goes here -->
-          <h1>Profile</h1>
-            
-            
-            <div class="container">
-              <div class="row">
-                <div class="col-3">
-                  <img src="http://via.placeholder.com/200x200" alt="profile picture">
-                  <input id="files-upload" type="file" multiple>
-                  <span class="showonhover"></span>
-                  <input id="selectfile" type="file" name="" style="display: none;" />
-                </div>
-                <div class="col-6">
-                  <p>Name: John Appleseed </p>
-                  <p>Email: email@gmail.com <a href="#">edit</a></p>
-                  <p>Phone number: 0912345678 <a href="#">edit</a></p>
-                </div>
-              </div>
+    <div class="col-12"> <!-- profile ciode goes here -->                      
+        <div class="container">
+          <div class="row">
+            <div class="col-3">
+              <img src="http://via.placeholder.com/200x200" alt="profile picture">
+              <input id="files-upload" type="file" multiple>
+              <span class="showonhover"></span>
+              <input id="selectfile" type="file" name="" style="display: none;" />
+              <div class="form__submit"><button name="button" type="submit" class="btn btn--full">Upload Photo</button></div>
+
             </div>
+            <div class="col-8">
+              <h1>Profile</h1>
+              <ul class="list-group-item list-group-item-secondary">
+                <li class="list-group-item">Name: John Appleseed</li>
+                <li class="list-group-item">Email: email@gmail.com</li>
+                <li class="list-group-item">Phone number: 0912345678</li>
+              </ul><br><br>
+            </div>
+          </div>
+        </div>
+    </div>
   </body>
 </html>
