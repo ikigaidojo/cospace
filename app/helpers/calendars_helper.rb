@@ -14,15 +14,13 @@ module CalendarsHelper
     html = '<div id = "available_rooms" >
               <div class="row">'
 
-
       ######################## ----- list of rooms  ----- ########################
       # adds div classes for the LIST of rooms
       html.concat("<div class='col-4'>
                     <div class='list-group' id='list-tab' role='tablist'>
                       <h5> Select a room </h5>
                       <small> These rooms are available on #{date}</small>")
-
-        
+      
       # create list of room names. 
       spare_rooms.each do |room|
         room_name = room[0]
@@ -40,7 +38,6 @@ module CalendarsHelper
       end
       # end divs for list divs
       html.concat("</div> </div>")
-
 
       ######################## ----- descriptions  ----- ########################
       # create divs for descriptions

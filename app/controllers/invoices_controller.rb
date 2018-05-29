@@ -1,5 +1,14 @@
 class InvoicesController < ApplicationController
   def index
+    @bookings = []
+
+    RoomBooking.all.each do |booking|
+      if booking.member_id == current_member.id
+        @bookings << booking
+        logger.info "id #{booking.id} is added to @booking"
+      end
+    end
+    return @bookings
   end
 
   def book_room
@@ -30,6 +39,7 @@ class InvoicesController < ApplicationController
     end
   end # book_room end
 
+  # this runs when 'invoice' button is clicked
   def create_pdf
     respond_to do |format|
       format.html
