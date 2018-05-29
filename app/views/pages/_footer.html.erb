@@ -6,40 +6,39 @@
       <div class="col-sm-3 myCols">
         <h5>Get started</h5>
         <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Sign up</a></li>
-            <li><a href="#">Downloads</a></li>
+          <li><%= link_to "Home", root_url %></li>
+          <li><%= link_to "Sign up", new_member_registration_path %></li>
         </ul>
       </div>
       <div class="col-sm-3 myCols">
         <h5>Contact Us</h5>
         <ul>
-            <li><a href="#">Company Information</a></li>
-            <li><a href="#">Contact us</a></li>
-            <li><a href="#">Reviews</a></li>
+          <li>8-7000</li>
+          <li>info@cospace.com</li>
         </ul>
       </div>
       <div class="col-sm-3 myCols">
-        <h5>Support</h5>
+        <h5>Address</h5>
         <ul>
-            <li><a href="#">FAQ</a></li>
-            <li><a href="#">Help desk</a></li>
-            <li><a href="#">Forums</a></li>
+          <li>Level 2, Industria Mall,
+              Circulo Verde, Calle Industria,
+              1110 Manila, Philippines</li>
         </ul>
       </div>
       <div class="col-sm-3 myCols">
-        <h5>Legal</h5>
-        <ul>
-            <li><a href="#">Terms of Service</a></li>
-            <li><a href="#">Terms of Use</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="social-networks">
+        <h5>Find us on</h5>
+        <div class="social-networks">
     <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
     <a href="#" class="facebook"><i class="fa fa-facebook-official"></i></a>
     <a href="#" class="google"><i class="fa fa-google-plus"></i></a>
   </div>
+      </div>
+    </div>
+  </div>
+  <!-- ommitted can be use in future restyling -->
+  <!-- <div class="social-networks">
+    <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+    <a href="#" class="facebook"><i class="fa fa-facebook-official"></i></a>
+    <a href="#" class="google"><i class="fa fa-google-plus"></i></a>
+  </div> -->
 </footer>
