@@ -39,6 +39,7 @@ Rails.application.routes.draw do
     collection do
       post "invoices"
       post "book_room"
+      get  "create_pdf"
     end
   end
 

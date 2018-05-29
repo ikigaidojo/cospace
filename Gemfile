@@ -79,3 +79,5 @@ gem "bootstrap",          "4.1.1"                  # https://github.com/twbs/boo
 gem 'high_voltage',       "3.1.0"                  # https://github.com/thoughtbot/high_voltage
 gem 'jquery-rails'                                 # https://github.com/rails/jquery-rails
 gem 'money',              "6.11.3"                 # https://github.com/RubyMoney/money
+gem 'wicked_pdf', '~> 1.1'                         # https://github.com/mileszs/wicked_pdf
+gem 'wkhtmltopdf-binary'

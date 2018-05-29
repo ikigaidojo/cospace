@@ -20,9 +20,13 @@
         </button>
       </div>
       <div class="col-2">
-        <button class="btn btn-success container-fluid" type="button">
+
+        <%= link_to "Invoice", create_pdf_invoices_path(:format => :pdf), :class => "btn btn-success container-fluid"%>
+
+        <!-- <button class="btn btn-success container-fluid" type="button">
           Invoice
-        </button>
+        </button> -->
+
       </div>
     </div>
   </p>
@@ -47,108 +51,4 @@
   </div>
   </p>
 
-  <p>
-    <div class="row">
-      <div class="col-10">
-        <button class="btn btn-primary container-fluid" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2">
-          Room Booking 2
-        </button>
-      </div>
-      <div class="col-2">
-        <button class="btn btn-success container-fluid" type="button">
-          Invoice
-        </button>
-      </div>
-    </div>
-  </p>
-  <p>
-  <div class="collapse" id="collapseExample2">
-    <div class="card card-body text-left">
-      <form>
-        <label>Name: </label> Kashyykk <br>
-        <label>Description: </label> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad ex sed molestiae fuga sit tempora libero molestias voluptatem iure quam. <br>
-        <label>Price: </label> $ 5.00 <br>
-        <label>Equipments: </label>
-          <ul>
-            <li>Lorem.</li>
-            <li>Voluptates.</li>
-            <li>Sint.</li>
-            <li>Voluptates.</li>
-          </ul>
-        <label>Location: </label> Launch Garage <br>
-        <label>Date Booked: </label> June 1, 2018
-      </form>
-    </div>
-  </div>
-  </p>
-
-  <p>
-    <div class="row">
-      <div class="col-10">
-        <button class="btn btn-primary container-fluid" type="button" data-toggle="collapse" data-target="#collapseExample3" aria-expanded="false" aria-controls="collapseExample3">
-          Room Booking 3
-        </button>
-      </div>
-      <div class="col-2">
-        <button class="btn btn-success container-fluid" type="button">
-          Invoice
-        </button>
-      </div>
-    </div>
-  </p>
-  <p>
-  <div class="collapse" id="collapseExample3">
-    <div class="card card-body text-left">
-      <form>
-        <label>Name: </label> Tatooine <br>
-        <label>Description: </label> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad ex sed molestiae fuga sit tempora libero molestias voluptatem iure quam. <br>
-        <label>Price: </label> $ 5.00 <br>
-        <label>Equipments: </label>
-          <ul>
-            <li>Lorem.</li>
-            <li>Voluptates.</li>
-            <li>Sint.</li>
-            <li>Voluptates.</li>
-          </ul>
-        <label>Location: </label> Launch Garage <br>
-        <label>Date Booked: </label> June 1, 2018
-      </form>
-    </div>
-  </div>
-  </p>
-
-  <p>
-    <div class="row">
-      <div class="col-10">
-        <button class="btn btn-primary container-fluid" type="button" data-toggle="collapse" data-target="#collapseExample4" aria-expanded="false" aria-controls="collapseExample4">
-          Room Booking 4
-        </button>
-      </div>
-      <div class="col-2">
-        <button class="btn btn-success container-fluid" type="button">
-          Invoice
-        </button>
-      </div>
-    </div>
-  </p>
-  <p>
-  <div class="collapse" id="collapseExample4">
-    <div class="card card-body text-left">
-      <form>
-        <label>Name: </label> Endor <br>
-        <label>Description: </label> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad ex sed molestiae fuga sit tempora libero molestias voluptatem iure quam. <br>
-        <label>Price: </label> $ 5.00 <br>
-        <label>Equipments: </label>
-          <ul>
-            <li>Lorem.</li>
-            <li>Voluptates.</li>
-            <li>Sint.</li>
-            <li>Voluptates.</li>
-          </ul>
-        <label>Location: </label> Launch Garage <br>
-        <label>Date Booked: </label> June 1, 2018
-      </form>
-    </div>
-  </div>
-  </p>
-</div>
+</div>  <!-- end div -->
