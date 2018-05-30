@@ -21,8 +21,6 @@ Rails.application.routes.draw do
   end
 
   get 'calendars/calendar'
-  
-  get 'settings/index'
 
   get 'invoices/admin_index'
   get 'invoices/index'
@@ -42,19 +40,16 @@ Rails.application.routes.draw do
     end
   end
 
-=begin
-  resource :setting, :only => [:edit] do
-    collection do
-      patch 'update password'
-    end
-  end
-=end
-  resource :setting, only: [:edit] do
+  resource :setting, :only => [] do
     collection do
       patch 'update_password'
     end  
   end  
-end
+
+  resources :settings, :only => [:index] do
+  end  
+  
+ end 
 
 
 
