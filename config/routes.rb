@@ -24,10 +24,6 @@ Rails.application.routes.draw do
   
   get 'settings/index'
 
-  get 'invoices/admin_index'
-  get 'invoices/index'
-  #get 'profiles/index'
-
   resources :calendars, :only => [] do
     collection do
       get "calendar"
@@ -35,7 +31,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :invoices, :only => [] do
+  resources :invoices, :only => [:index] do
     collection do
       post "invoices"
       post "book_room"
