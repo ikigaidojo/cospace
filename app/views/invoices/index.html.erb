@@ -6,16 +6,15 @@
     <!-- generate all this from database -->
     <p>
       <div class="row">
-        
           <div class="btn-group container-fluid" role="group" aria-label="invoice button group">
             <button class="btn btn-primary  display-booking" type="button" data-toggle="collapse" data-target= '#<%= booking.id %>' aria-expanded="false" aria-controls= '<%= booking.id %>' >
               <%= booking.name %> at <%= booking.date_booked %>
             </button>
-            
-              <%= link_to "Invoice", create_pdf_invoices_path(@bookings, :format => :pdf), :class => "btn btn-success btn-block invoice-button", :target => "_blank"%>
-            
+
+
+            <%= link_to "Invoice", create_pdf_invoices_path(:id => booking, :format => :pdf), :class => "btn btn-success btn-block invoice-button", :target => "_blank" %>
+
           </div>
-          
       </div>
     </p>
     <p>
@@ -27,6 +26,10 @@
           <br>
           It comes with <%= booking.facilities %> <br>
           cost: $<%= ('%.2f' % (booking.price.to_i/100.0)) %>
+
+          room_id    = <%= booking.room_id%> <br>
+          member_id  = <%= booking.member_id%> <br>
+          booking_id = <%= booking.id%> 
         </p>
       </div>
     </div>
