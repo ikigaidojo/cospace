@@ -14,6 +14,7 @@
     <title>Cospace</title>
   </head>
   <body>
+    <h1>Profile</h1>
     <div class="col-12"> <!-- profile ciode goes here -->                      
         <div class="container">
           <div class="row">
@@ -26,12 +27,27 @@
 
             </div>
             <div class="col-8">
-              <h1>Profile</h1>
+              
               <ul class="list-group-item list-group-item-secondary">
-                <li class="list-group-item">Name: John Appleseed</li>
-                <li class="list-group-item">Email: email@gmail.com</li>
-                <li class="list-group-item">Phone number: 0912345678</li>
+                <li class="list-group-item text-left">First Name: <%= current_member.first_name%></li>
+                <li class="list-group-item text-left">Last Name: <%= current_member.last_name%></li>
+                <li class="list-group-item text-left">Email: <%= current_member.email %></li>
+                <li class="list-group-item text-left">Phone number: <%= current_member.phone_number %></li>
               </ul><br><br>
+
+                  <!-- Button Content of Profiles link to Settings -->
+              <div id="Profiles">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-lg-12 text-center">
+                      <div class="btn btn-dark">
+                        <%= link_to "Update Profile", settings_index_path %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>
