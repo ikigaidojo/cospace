@@ -57,7 +57,7 @@
             <a href="#">Dashboard</a>
           </li>
           <li>
-              <%= link_to 'Bookings', invoices_index_path %>
+              <%= link_to 'Bookings', invoices_path %>
           </li>
           <li>
               <%= link_to 'Calendar', calendars_calendar_path %>
@@ -66,7 +66,7 @@
                <%= link_to 'Profiles', profiles_path %>
           </li>
           <li>
-              <%= link_to 'Settings', settings_index_path %>
+              <%= link_to 'Settings', settings_path %>
           </li>
         </ul>
       </div>
@@ -86,9 +86,6 @@
         </div>
       </div>
     </div> 
-
-
-
   </div>
     <!-- /#wrapper -->
     <%- unless current_member %>
