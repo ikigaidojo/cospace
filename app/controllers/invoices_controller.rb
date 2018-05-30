@@ -22,7 +22,7 @@ class InvoicesController < ApplicationController
 
       if new_room_booking.persisted?
         room.room_bookings << new_room_booking
-        redirect_to invoices_index_path, notice: "Room booking successfull!"
+        redirect_to invoices_path, notice: "Room booking successfull!"
       end
 
     else
