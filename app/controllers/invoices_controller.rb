@@ -1,14 +1,16 @@
 class InvoicesController < ApplicationController
+ before_action :authenticate_member!
+
   def index
     @bookings = []
 
     RoomBooking.all.each do |booking|
       if booking.member_id == current_member.id
         @bookings << booking
-        logger.info "id #{booking.id} is added to @booking"
+        logger.info "booking number #{booking.id} added to @bookings"
+        @bookings = @bookings.reverse
       end
     end
-    return @bookings
   end
 
   def book_room

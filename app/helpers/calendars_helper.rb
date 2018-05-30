@@ -48,7 +48,7 @@ module CalendarsHelper
       spare_rooms.each do |room|
         room_name = room[0]
         description = room[1]
-        price = ('%.2f' % (room[2].to_i/100.0)) # or install monery gem
+        price = ('%.2f' % (room[2].to_i/100.0)) # or install money gem
         member_id = current_member.id
         facilities = room[3]
         room_id = room[4]
