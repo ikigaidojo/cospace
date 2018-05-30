@@ -21,8 +21,6 @@ Rails.application.routes.draw do
   end
 
   get 'calendars/calendar'
-  
-  get 'settings/index'
 
   resources :calendars, :only => [] do
     collection do
@@ -36,6 +34,12 @@ Rails.application.routes.draw do
       post "invoices"
       post "book_room"
       get  "create_pdf"
+    end
+  end
+
+  resources :setting, :only => [:index] do
+    collection do
+      patch 'update_password'
     end
   end
 
