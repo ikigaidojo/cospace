@@ -1,24 +1,21 @@
 <div class="container-fluid">
   <h1> My Bookings </h1>
   <br>
-  <div class="container-fluid">
+  <div class="container-fluid bookings-container">
     <% @bookings.each do |booking| %>
     <!-- generate all this from database -->
     <p>
       <div class="row">
-        <div class="col-9">
-          <button class="btn btn-primary container-fluid" type="button" data-toggle="collapse" data-target= '#<%= booking.id %>' aria-expanded="false" aria-controls= '<%= booking.id %>' >
-            <%= booking.name %> at <%= booking.date_booked %>
-          </button>
-        </div>
-        <div class="col-3">
-          <%= link_to "Invoice", create_pdf_invoices_path(@bookings, :format => :pdf), :class => "btn btn-success container-fluid", :target => "_blank"%>
-
-          <!-- <button class="btn btn-success container-fluid" type="button">
-            Invoice
-          </button> -->
-
-        </div>
+        
+          <div class="btn-group container-fluid" role="group" aria-label="invoice button group">
+            <button class="btn btn-primary  display-booking" type="button" data-toggle="collapse" data-target= '#<%= booking.id %>' aria-expanded="false" aria-controls= '<%= booking.id %>' >
+              <%= booking.name %> at <%= booking.date_booked %>
+            </button>
+            
+              <%= link_to "Invoice", create_pdf_invoices_path(@bookings, :format => :pdf), :class => "btn btn-success btn-block invoice-button", :target => "_blank"%>
+            
+          </div>
+          
       </div>
     </p>
     <p>
