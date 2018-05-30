@@ -1,4 +1,11 @@
-<br>
-
-<h3>Congratulations, You have been added to Cospace!</h3>
-<p>We've sent a little present to your email, hope you enjoy it!</p>
+<div class="mx-auto" style="max-width: 23rem;">
+    <div class="card text-center">
+      <div class="card-body">
+        <h2 class="card-title">Congratulations, You have been added to Cospace!</h2>
+        <p class="card-text">We've sent a little present to your email, hope you enjoy it!</p>
+        <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+          <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br />
+        <% end -%>
+    </div>
+  </div>
+</div>
