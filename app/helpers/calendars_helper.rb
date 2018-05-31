@@ -14,15 +14,13 @@ module CalendarsHelper
     html = '<div id = "available_rooms" >
               <div class="row">'
 
-
       ######################## ----- list of rooms  ----- ########################
       # adds div classes for the LIST of rooms
       html.concat("<div class='col-4'>
                     <div class='list-group' id='list-tab' role='tablist'>
                       <h5> Select a room </h5>
                       <small> These rooms are available on #{date}</small>")
-
-        
+      
       # create list of room names. 
       spare_rooms.each do |room|
         room_name = room[0]
@@ -41,7 +39,6 @@ module CalendarsHelper
       # end divs for list divs
       html.concat("</div> </div>")
 
-
       ######################## ----- descriptions  ----- ########################
       # create divs for descriptions
       html.concat("<div class='col-8'>
@@ -51,7 +48,7 @@ module CalendarsHelper
       spare_rooms.each do |room|
         room_name = room[0]
         description = room[1]
-        price = ('%.2f' % (room[2].to_i/100.0)) # or install monery gem
+        price = ('%.2f' % (room[2].to_i/100.0)) # or install money gem
         member_id = current_member.id
         facilities = room[3]
         room_id = room[4]

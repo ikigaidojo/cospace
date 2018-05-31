@@ -1,42 +1,33 @@
 <div class="container-fluid">
-<h1> My Bookings </h1>
-  <p>
-    <div class="row">
-      <div class="col-10">
-        <button class="btn btn-primary container-fluid" type="button" data-toggle="collapse" data-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1">
-          Room Booking 1
-        </button>
+  <h1> My Bookings </h1>
+  <br>
+  <div class="container-fluid bookings-container">
+    <% @bookings.each do |booking| %>
+    <!-- generate all this from database -->
+    <p>
+      <div class="row">
+          <div class="btn-group container-fluid" role="group" aria-label="invoice button group">
+            <button class="btn btn-primary  display-booking" type="button" data-toggle="collapse" data-target= '#<%= booking.id %>' aria-expanded="false" aria-controls= '<%= booking.id %>' >
+              <%= booking.name %> at <%= booking.date_booked %>
+            </button>
+            <%= link_to "Invoice", create_pdf_invoices_path(:id => booking, :format => :pdf), :class => "btn btn-success btn-block invoice-button", :target => "_blank" %>
+          </div>
       </div>
-      <div class="col-2">
+    </p>
+    <p>
+    <div class="collapse" id= '<%= booking.id %>' >
+      <div class="card card-body text-left">
+        <p>
+          You have booked <%= booking.name%> at <%= booking.location%>, reserved for <%= booking.date_booked%> <br>
+          <%= booking.name%> has <%= booking.description %> <br>
+          <br>
+          It comes with <%= booking.facilities %> <br>
+          Price: $<%= ('%.2f' % (booking.price.to_i/100.0)) %>
 
-        <%= link_to "Invoice", create_pdf_invoices_path(:format => :pdf), :class => "btn btn-success container-fluid"%>
-
-        <!-- <button class="btn btn-success container-fluid" type="button">
-          Invoice
-        </button> -->
-
+        </p>
       </div>
     </div>
-  </p>
-  <p>
-  <div class="collapse" id="collapseExample1">
-    <div class="card card-body text-left">
-      <form>
-        <label>Name: </label> Malandore <br>
-        <label>Description: </label> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad ex sed molestiae fuga sit tempora libero molestias voluptatem iure quam. <br>
-        <label>Price: </label> $ 5.00 <br>
-        <label>Equipments: </label>
-          <ul>
-            <li>Lorem.</li>
-            <li>Voluptates.</li>
-            <li>Sint.</li>
-            <li>Voluptates.</li>
-          </ul>
-        <label>Location: </label> Launch Garage <br>
-        <label>Date Booked: </label> June 1, 2018
-      </form>
-    </div>
+    </p>
+    <% end %>
   </div>
-  </p>
-
 </div>  <!-- end div -->

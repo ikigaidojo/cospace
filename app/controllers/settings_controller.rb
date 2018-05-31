@@ -1,11 +1,12 @@
 class SettingsController < ApplicationController
 
+  before_action :authenticate_member!
+  
   ACCOUNT_INFORMATION_PANEL_ACTIVE = 1
   PASSWORD_RESET_PANEL_ACTIVE      = 2
   NOTIFICATION_PANEL_ACTIVE        = 3
   PAYMENT_METHOD_PANEL_ACTIVE      = 4
 
-  before_action :authenticate_member!
 
   def index
     @member = current_member

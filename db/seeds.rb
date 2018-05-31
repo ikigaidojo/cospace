@@ -52,19 +52,14 @@ mara_member.room_bookings << room_booking
 
 
 
-# Endor Room, Hoth Room and Tatooine Room booked by Tim on 2018/26/06
-room_booking = RoomBooking.create(date_booked: DateTime.parse("2018-06-26"))
+#Two rooms booked by Tim 
+room_booking = RoomBooking.create(name: "Booking1", member_id: 3, facilities: "some pencils, paper, power in tables, water, air-conditioning, coffee", description: "a pretty nice room nestled in the back of launch garage", price: 9430, location: "Launch Garage", date_booked: DateTime.parse("2018-10-05")  )
 endor_room.room_bookings << room_booking
 tim_member.room_bookings << room_booking
 
-room_booking = RoomBooking.create(date_booked: DateTime.parse("2018-06-26"))
+room_booking = RoomBooking.create(name: "Booking1", member_id: 3, facilities: " a bathtub, a chef who can only cook salmon, three baby goats, some rubber duckys for the bath", description: "a quirky room, not the kind you would usually work in, but charming.", price: 9430, location: "Launch Garage", date_booked: DateTime.parse("2018-10-05") )
 hoth_room.room_bookings << room_booking
 tim_member.room_bookings << room_booking
-
-room_booking = RoomBooking.create(date_booked: DateTime.parse("2018-06-26"))
-tatooine_room.room_bookings << room_booking
-tim_member.room_bookings << room_booking
-
 
 
 # Kashyyyk Room booked by Wendy on 06/27/2018
