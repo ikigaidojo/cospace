@@ -16,6 +16,19 @@ class SettingsController < ApplicationController
     @member = current_member
   end
 
+ def update_password
+    @member = Member.find(current_member.id)
+    if @member.update_with_password(password_params)
+    end 
+end
+
+  private
+  def password_params
+      params.require(:member).permit(:password, :password_confirmation, :current_password)
+  end
+end 
+
+=begin
   def update_password
     @member = current_member
     if @member.update_with_password(member_params)
@@ -28,11 +41,15 @@ class SettingsController < ApplicationController
       render "index"
     end
   end
+=end
 
+=begin
  private
 
   def member_params
     # NOTE: Using `strong_parameters` gem
     params.require(:member).permit(:current_password, :password, :password_confirmation)
   end
-end
+=end
+
+
