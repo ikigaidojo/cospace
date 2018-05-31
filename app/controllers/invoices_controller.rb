@@ -49,6 +49,9 @@ class InvoicesController < ApplicationController
   @member = Member.where(id: @booked.member_id).first
   logger.info @member 
 
+  @location = Location.where(id: 1).first
+  logger.info @location
+
     respond_to do |format|
       format.html
       format.pdf do
