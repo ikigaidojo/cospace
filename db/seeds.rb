@@ -40,6 +40,17 @@ room_booking_6 = RoomBooking.create(name: "Booking6", description: Faker::Lorem.
 room_booking_7 = RoomBooking.create(name: "Booking7", description: Faker::Lorem.sentence, price: 35000, location: "Launch Garage", date_booked: DateTime.now )
 room_booking_8 = RoomBooking.create(name: "Booking8", description: Faker::Lorem.sentence, price: 25000, location: "Launch Garage", date_booked: DateTime.now )
 
+# create location
+Location.create(
+  name: "Launch Garage", 
+  address: "Level 2, Industria Mall, Circulo Verde,", 
+  address_line_two: "Calle Industria, Bagumbayan, Quezon City,", 
+  city_state: "Metro Manila", 
+  post_code: "1110",
+  email: "launchgarage@gmail.com", 
+  phone_number: "022816970", 
+  map: "https://goo.gl/maps/qg2brUptdNE2")
+
 
 # Mandalore Room and Kashyyyk Room booked by Mara on 2018/06/25
 room_booking = RoomBooking.create(date_booked: DateTime.parse("2018-06-25"))

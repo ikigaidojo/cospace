@@ -1,8 +1,10 @@
 <div class="text-right container-fluid">
   <small>
-    Street Address<br/>
-    Launchgarage@email.com <br/> 
-    phone number 
+    <%= @location.address%> <br/>
+    <%= @location.address_line_two%> <br/>
+    <%= @location.city_state%> <%= @location.post_code%>  <br/> <br/>
+    <%= @location.email%> <br/> 
+    <%= @location.phone_number%> 
   </small>
 </div>
 
@@ -51,7 +53,7 @@ Quantity: 1
 <div class="fixed-bottom text-center">
   <small>
     This invoice was auto generated at <%= DateTime.now.strftime("%H:%M%P, %e %B %Y") %><br/>
-    Thank you for co-working with <%= (@booked.location).split.map(&:capitalize).join(' ') %> <br/> 
+    Thank you for co-working with <%= (@location.name).split.map(&:capitalize).join(' ') %> <br/> 
   </small>
 </div>
  
