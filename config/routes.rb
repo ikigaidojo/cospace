@@ -47,7 +47,16 @@ Rails.application.routes.draw do
   resources :settings, :only => [:index] do
   end  
 
-end
+  resource :setting, :only => [] do
+    collection do
+      patch 'update_password'
+    end  
+  end  
+
+  resources :settings, :only => [:index] do
+  end  
+  
+ end 
 
 
 

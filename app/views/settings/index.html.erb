@@ -1,17 +1,17 @@
 <div class="col-12">
-  <h1 class="text-left font-weight-bold"> Account Settings </h1>
+  <h1 class="text-left font-weight-bold"> Account Settings</h1>
     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
       <li class="nav-item">
-        <a class="nav-link active" id="pills-basic-tab" data-toggle="pill" href="#pills-basic" role="tab" aria-controls="pills-basic" aria-selected="false">Account Information</a>
+        <a class="nav-link<%= account_information(@active_panel) %>" id="pills-basic-tab" data-toggle="pill" href="#pills-basic" role="tab" aria-controls="pills-basic" aria-selected="false">Account Information</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="pills-password-tab" data-toggle="pill" href="#pills-password" role="tab" aria-controls="pills-password" aria-selected="false">Password Reset</a>
+        <a class="nav-link<%= password_reset(@active_panel) %>" id="pills-password-tab" data-toggle="pill" href="#pills-password" role="tab" aria-controls="pills-password" aria-selected="false">Password Reset</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="pills-notification-tab" data-toggle="pill" href="#pills-notification" role="tab" aria-controls="pills-notification" aria-selected="false">Notification</a>
+        <a class="nav-link <%= notification(@active_panel) %>" id="pills-notification-tab" data-toggle="pill" href="#pills-notification" role="tab" aria-controls="pills-notification" aria-selected="false">Notification</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="pills-payment-tab" data-toggle="pill" href="#pills-payment" role="tab" aria-controls="pills-payment" aria-selected="false">Payment Methods</a>
+        <a class="nav-link <%= payment_methods(@active_panel) %>" id="pills-payment-tab" data-toggle="pill" href="#pills-payment" role="tab" aria-controls="pills-payment" aria-selected="false">Payment Methods</a>
       </li>
     </ul>
 </div>
@@ -19,7 +19,7 @@
 <!-- Tab content -->
 <div class="tab-content" id="pills-tabContent">
   <!-- Account informaton tab pane -->
-  <div class="tab-pane fade show active" id="pills-basic" role="tabpanel" aria-labelledby="pills-basic-tab">
+  <div class="tab-pane fade show<%= account_information(@active_panel) %>" id="pills-basic" role="tabpanel" aria-labelledby="pills-basic-tab">
     <div class="container-fluid">
       <h3 class="text-left font-weight-bold">Account Information</h3>
       <br/>
@@ -74,18 +74,77 @@
     </div>
   </div>
   <!-- Password reset tab pane -->
-  <div class="tab-pane fade" id="pills-password" role="tabpanel" aria-labelledby="pills-password-tab">
+  <div class="tab-pane fade show<%= password_reset(@active_panel) %>" id="pills-password" role="tabpanel" aria-labelledby="pills-password-tab">
     <div class="container-fluid">
-     
+
+      <h4 class= "text-left font-weight-bold">Change Your Password</h4>
+      
+      <%= form_for(@member, url: { action: "update_password" } ) do |f| %>
+         
+         <div class="field row text-right font-weight-bold">
+            <div class="col-sm-2 col-form-label font-weight-bold">
+              <%= f.label :current_password, "Current Password" %> <br /> 
+              <!--<i>(We need your current password to confirm your changes)</i><br /> -->
+            </div>
+            <div class="col-sm-2">
+              <%= f.password_field :current_password %>
+            </div>
+        </div>
+        <div class="field row text-right">
+          <div class="col-sm-2 col-form-label font-weight-bold">
+            <%= f.label :password, "Password" %><br />
+          </div>
+          <div class="col-sm-2">
+            <%= f.password_field :password, :autocomplete => "off"  %>
+          </div>
+        </div>
+        <div class="field row text-right">
+          <div class="col-sm-2 col-form-label font-weight-bold">
+            <%= f.label :password_confirmation %><br />
+          </div>
+          <div class="col-sm-2 col-form-label font-weight-bold">
+          <%= f.password_field :password_confirmation %>
+          </div>
+        </div>
+        <div class="action_container col-sm-6 ">
+          <%= f.submit 'Update Password' %>
+        </div>
+      <% end %>
     </div>
+  </div>
+
+<!--
+      <form>
+        <div class="form-group row text-right">
+          <label class="col-sm-2 col-form-label font-weight-bold">Old Password</label>
+            <div class="col-sm-4">
+              <input type="password" class="form-control" placeholder="Old Password">
+            </div>
+        </div>
+        <div class="form-group row text-right">
+          <label class="col-sm-2 col-form-label font-weight-bold">New Password</label>
+            <div class="col-sm-4">
+              <input type="password" class="form-control" placeholder="New Password">
+            </div>
+        </div>
+        <div class="form-group row text-right">
+          <label class="col-sm-2 col-form-label font-weight-bold">Confirm Password</label>
+            <div class="col-sm-4">
+              <input type="password" class="form-control" placeholder="Confirm Password">
+            </div>
+        </div>
+      </form>
+
+
     <div class="form-group row container">
       <div class="col-sm-9">
         <button type="submit" class="btn btn-danger">Update Password</button>
       </div>    
     </div>
   </div>
+  -->
   <!-- Notification tab pane -->
-  <div class="tab-pane fade" id="pills-notification" role="tabpanel" aria-labelledby="pills-notification-tab">
+  <div class="tab-pane fade show <%= notification(@active_panel) %>" id="pills-notification" role="tabpanel" aria-labelledby="pills-notification-tab">
     <div class="container-fluid">
       <h3 class="font-weight-bold text-left">Email Notification:</h3>
         <div class="form-group row">
@@ -121,7 +180,7 @@
     </div>
   </div>
   <!-- Payment tab pane -->
-  <div class="tab-pane fade" id="pills-payment" role="tabpanel" aria-labelledby="pills-payment-tab">
+  <div class="tab-pane fade show <%= payment_methods(@active_panel) %>" id="pills-payment" role="tabpanel" aria-labelledby="pills-payment-tab">
     <div class="container-fluid">
      <h3 class="font-weight-bold text-left">Credit Card Information:</h3>
       <form>
@@ -159,7 +218,4 @@
   </div>
 
 </div> <!-- tab content end div -->
-
-
-
 
