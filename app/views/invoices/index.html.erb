@@ -25,11 +25,8 @@
           <%= booking.name%> has <%= booking.description %> <br>
           <br>
           It comes with <%= booking.facilities %> <br>
-          cost: $<%= ('%.2f' % (booking.price.to_i/100.0)) %>
+          Price: $<%= ('%.2f' % (booking.price.to_i/100.0)) %>
 
-          room_id    = <%= booking.room_id%> <br>
-          member_id  = <%= booking.member_id%> <br>
-          booking_id = <%= booking.id%> 
         </p>
       </div>
     </div>

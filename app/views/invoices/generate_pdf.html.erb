@@ -1,12 +1,59 @@
-<h1>Invoice</h1>
+<div class="text-right container-fluid">
+  <small>
+    Street Address<br/>
+    Launchgarage@email.com <br/> 
+    phone number 
+  </small>
+</div>
+
+<h2><%= @booked.location%></h2>
+<h4>Invoice</h4>
+<small>
+  Bill to: <%= @member.first_name.capitalize %> <%= @member.last_name.capitalize %><br/>
+  Email: <%= @member.email%> <br/>
+  Address: n/a 
+   <!-- we need to add the address to member -->
+</small>
   
-the room booked is.... <%= @booked.name  %></br>
-price of the booking is... <%= @booked.price %></br>
-description of the booking is... <%= @booked.description %></br>
-location of the booking is... <%= @booked.location %></br>
-date booked is... <%= @booked.date_booked %></br>
+<div class="text-right container-fluid">
 
+  Invoice number <%= @booked.id %><br/> 
+  <!-- note invoice number is the booking ID. -->
+  Issued <%= DateTime.now.strftime("%e %B %Y") %><br>
+  <strong> Due Date:  <%= (@booked.date_booked+2592000).strftime("%e %B %Y") %> </strong>
+  
+</div>
 
+<%resource_name = "projector" 
+  resource_price = 3000
+  unit = "day" %>
 
+ <!--  note these  need to be specified in seeds.rb. Also unit models/contorller need making.  -->
+
+<hr>
+Booking of <%= @booked.name.capitalize %> room.<br/>
+Rate: <%= Money.new(@booked.price, "USD").format %>/<%= unit %><br/>
+Quantity: 1 <br/> <br/>
+
+Booking of <%= resource_name.capitalize %>.<br/>
+Rate: <%= Money.new(resource_price, "USD").format %>/<%= unit %><br/>
+Quantity: 1
+
+<div class=" container text-right">
+  <%= @booked.name.capitalize %>: <%= Money.new(@booked.price, "USD").format %><br/>
+  <%= resource_name.capitalize %>: <%= Money.new(resource_price, "USD").format %>
+  <hr>
+ <strong>Total: <%= Money.new(@booked.price + resource_price, "USD").format %></strong>
+</div> 
+
+<br/><br/><br/>
+
+<div class="fixed-bottom text-center">
+  <small>
+    This invoice was auto generated at <%= DateTime.now.strftime("%H:%M%P, %e %B %Y") %><br/>
+    Thank you for co-working with <%= (@booked.location).split.map(&:capitalize).join(' ') %> <br/> 
+  </small>
+</div>
+ 
 
 

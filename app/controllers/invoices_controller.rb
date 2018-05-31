@@ -46,6 +46,9 @@ class InvoicesController < ApplicationController
   @booked = RoomBooking.where(id: params[:id]).first
   logger.info @booked
 
+  @member = Member.where(id: @booked.member_id).first
+  logger.info @member 
+
     respond_to do |format|
       format.html
       format.pdf do

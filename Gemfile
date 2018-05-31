@@ -80,4 +80,4 @@ gem 'high_voltage',       "3.1.0"                  # https://github.com/thoughtb
 gem 'jquery-rails'                                 # https://github.com/rails/jquery-rails
 gem 'money',              "6.11.3"                 # https://github.com/RubyMoney/money
 gem 'wicked_pdf', '~> 1.1'                         # https://github.com/mileszs/wicked_pdf
-gem 'wkhtmltopdf-binary'
+gem 'wkhtmltopdf-binary'                           # a dependency of wicked_pdf. 
