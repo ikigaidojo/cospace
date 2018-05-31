@@ -80,14 +80,14 @@
       
       <%= form_for(@member, url: { action: "update_password" } ) do |f| %>
          
-         <div class="field row text-right font-weight-bold">
-            <div class="col-sm-2 col-form-label font-weight-bold">
-              <%= f.label :current_password, "Current Password" %> <br /> 
-              <!--<i>(We need your current password to confirm your changes)</i><br /> -->
-            </div>
-            <div class="col-sm-2">
-              <%= f.password_field :current_password %>
-            </div>
+       <div class="field row text-right font-weight-bold">
+          <div class="col-sm-2 col-form-label font-weight-bold">
+            <%= f.label :current_password, "Current Password" %> <br /> 
+            <!--<i>(We need your current password to confirm your changes)</i><br /> -->
+          </div>
+          <div class="col-sm-2">
+            <%= f.password_field :current_password %>
+          </div>
         </div>
         <div class="field row text-right">
           <div class="col-sm-2 col-form-label font-weight-bold">
