@@ -17,7 +17,7 @@ class SettingsController < ApplicationController
     @member = current_member
   end
 
-  def update_password
+ def update_password
     @member = current_member
     if @member.update_with_password(member_params)
       # Sign in the user by passing validation in case their password changed
@@ -30,10 +30,10 @@ class SettingsController < ApplicationController
     end
   end
 
- private
+  private
 
   def member_params
     # NOTE: Using `strong_parameters` gem
     params.require(:member).permit(:current_password, :password, :password_confirmation)
   end
-end
+end 
