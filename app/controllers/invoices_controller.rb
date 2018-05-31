@@ -31,7 +31,7 @@ class InvoicesController < ApplicationController
 
       if new_room_booking.persisted?
         room.room_bookings << new_room_booking
-        redirect_to invoices_index_path, notice: "#{new_room_booking.name} booked successfully!"
+        redirect_to invoices_path, notice: "#{new_room_booking.name} booked successfully!"
       else 
         redirect_to :back, notice: "#{new_room_booking.name} booking failed"
       end 
