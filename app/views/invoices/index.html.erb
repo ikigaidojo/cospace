@@ -7,8 +7,8 @@
     <p>
       <div class="row">
           <div class="btn-group container-fluid" role="group" aria-label="invoice button group">
-            <button class="btn btn-primary  display-booking" type="button" data-toggle="collapse" data-target= '#<%= booking.id %>' aria-expanded="false" aria-controls= '<%= booking.id %>' >
-              <%= booking.name %> at <%= booking.date_booked %>
+            <button class="btn btn-secondary  display-booking" type="button" data-toggle="collapse" data-target= '#<%= booking.id %>' aria-expanded="false" aria-controls= '<%= booking.id %>' >
+              <%= booking.date_booked.strftime("%e %B %Y") %> - <%= booking.name%>
             </button>
             <%= link_to "Invoice", create_pdf_invoices_path(:id => booking, :format => :pdf), :class => "btn btn-success btn-block invoice-button", :target => "_blank" %>
           </div>
@@ -18,8 +18,8 @@
     <div class="collapse" id= '<%= booking.id %>' >
       <div class="card card-body text-left">
         <p>
-          You have booked <%= booking.name%> at <%= booking.location%>, reserved for <%= booking.date_booked%> <br>
-          <%= booking.name%> has <%= booking.description %> <br>
+          You have booked <%= booking.name%> at <%= booking.location%>, reserved for <%= booking.date_booked.strftime("%e %B %Y")%> <br>
+          <%= booking.name %> has <%= booking.description %> <br>
           <br>
           It comes with <%= booking.facilities %> <br>
           Price: $<%= ('%.2f' % (booking.price.to_i/100.0)) %>
