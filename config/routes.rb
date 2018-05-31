@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
 
-  get 'index/index'
-  root to: 'index#index'
+  get "index/index"
+  root to: "index#index"
+  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  get '/index', to: 'index#index'
+  get "/index", to: "index#index"
 
-  devise_for :members, controllers: { registrations: 'members/registrations' }
+  devise_for :members, controllers: { registrations: "members/registrations" }
 
   resources :members, :only => [] do
     collection do
@@ -20,11 +21,7 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'calendars/calendar'
-
-  get 'invoices/admin_index'
-  get 'invoices/index'
-  #get 'profiles/index'
+  get "calendars/calendar"
 
   resources :calendars, :only => [] do
     collection do
@@ -33,12 +30,22 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :invoices, :only => [] do
+  resources :invoices, :only => [:index] do
     collection do
       post "invoices"
       post "book_room"
+      get  "create_pdf"
     end
   end
+
+  resource :setting, :only => [] do
+    collection do
+      patch "update_password"
+    end
+  end
+  
+  resources :settings, :only => [:index] do
+  end  
 
   resource :setting, :only => [] do
     collection do

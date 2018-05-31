@@ -76,6 +76,7 @@
   <!-- Password reset tab pane -->
   <div class="tab-pane fade show<%= password_reset(@active_panel) %>" id="pills-password" role="tabpanel" aria-labelledby="pills-password-tab">
     <div class="container-fluid">
+
       <h4 class= "text-left font-weight-bold">Change Your Password</h4>
       
       <%= form_for(@member, url: { action: "update_password" } ) do |f| %>
@@ -133,6 +134,7 @@
             </div>
         </div>
       </form>
+
 
     <div class="form-group row container">
       <div class="col-sm-9">

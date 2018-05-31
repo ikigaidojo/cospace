@@ -23,10 +23,26 @@ note: "remote => true" instructs rails not to reload and instead lets Ajax run. 
         <!-- gets replaced by show_spare.js.erb when a calendar day is clicked-->
         <!-- this is to ill the space before a day is clicked -->
         <div id="available_rooms">
-          <ul class ="list-group">
-            <li class = "list-group-item">Click a day to see available rooms</li>
-          </ul>
-        </div>
+          <div class="row">
+            <div class='col-4'>
+              <div class='list-group' id='list-tab' role='tablist'>
+                <h5> Click a day in the calendar</h5>
+                <a class = 'list-group-item' > no rooms yet
+                </a>
+              </div>
+            </div>
+            <div class='col-8'>
+              <div class='tab-content' id='nav-tabContent'>  
+                <div class='container-fluid'> 
+                  <h2> Happy room </h2>
+                  <br><p>
+                  Click on a day in the calendar above <br>
+                  </p><br> 
+                </div>
+              </div>
+            </div>
+          </div> <!-- row end -->
+        </div> <!-- available_rooms end -->
         
       </div> <!-- container-fluid end -->
 <br>

@@ -22,12 +22,26 @@ class InvoicesController < ApplicationController
 
       if new_room_booking.persisted?
         room.room_bookings << new_room_booking
-        redirect_to invoices_index_path, notice: "Room booking successfull!"
+        redirect_to invoices_path, notice: "Room booking successfull!"
       end
 
     else
       logger.info "room does not exist"
     end
-
   end # book_room end
+
+  def create_pdf
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "Invoice",
+        template: "invoices/generate_pdf.html.erb",
+        layout: "pdf.html"
+      end
+    end
+  end
+
+
 end
+
+
