@@ -10,10 +10,7 @@
             <button class="btn btn-primary  display-booking" type="button" data-toggle="collapse" data-target= '#<%= booking.id %>' aria-expanded="false" aria-controls= '<%= booking.id %>' >
               <%= booking.name %> at <%= booking.date_booked %>
             </button>
-
-
             <%= link_to "Invoice", create_pdf_invoices_path(:id => booking, :format => :pdf), :class => "btn btn-success btn-block invoice-button", :target => "_blank" %>
-
           </div>
       </div>
     </p>

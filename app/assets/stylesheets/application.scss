@@ -4,18 +4,26 @@
 @import "simple_calendar";
 
 // This custom is only temporary solution
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  position: relative;
+  min-height: 100%;
+  /*padding-bottom: 24rem;*/
+
+  padding-top: 54px;
+  overflow-x: hidden;
+}
+
+@media (min-width: 992px) {
   body {
-              padding-top: 54px;
-              overflow-x: hidden;
-            }
-            @media (min-width: 992px) {
-              body {
-                padding-top: 56px;
-              }
-            }
-
-
-
+    padding-top: 56px;
+  }
+}
+  
 #wrapper {
   padding-left: 0;
   -webkit-transition: all 0.5s ease;
@@ -126,6 +134,105 @@
   #wrapper.toggled #page-content-wrapper {
     position: relative;
     margin-right: 0;
+  }
+}
+
+/* footer */
+#footer-divider {
+  position: relative;
+  padding-bottom: 24rem;
+}
+
+footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  text-align: center;
+}
+
+#myFooter {
+  background-color: grey;
+  color:white;
+}
+
+/*#myFooter .footer-copyright{
+  background-color: #383737;
+  padding-top:3px;
+  padding-bottom:3px;
+  text-align: center;
+  margin: 0px;
+}
+
+#myFooter .footer-copyright p{
+  margin:10px;
+  color: #ccc;
+}*/
+
+#myFooter ul{
+  list-style-type: none;
+    padding-left: 0;
+    line-height: 1.7;
+
+}
+
+#myFooter h5{
+  font-size: 18px;
+    color: white;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+#myFooter a{
+  color:#d2d1d1;
+  text-decoration: none;
+}
+
+#myFooter a:hover, #myFooter a:focus{
+  text-decoration: none;
+  color:white;
+}
+
+#myFooter .myCols{
+  text-align: center;
+}
+
+#myFooter .social-networks{
+  text-align: center;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+#myFooter .social-networks a{
+    font-size: 32px;
+    margin-right: 5px;
+    margin-left: 5px;
+    color: #f9f9f9;
+    padding: 10px;
+    transition: 0.2s;
+}
+
+#myFooter .social-networks a:hover{
+  text-decoration: none;
+
+}
+
+#myFooter .facebook:hover{
+  color:#0077e2;
+}
+
+#myFooter .google:hover{
+  color:#ef1a1a;
+}
+
+#myFooter .twitter:hover{
+  color: #00aced;
+}
+
+@media screen and (max-width: 767px){
+  #myFooter {
+    text-align: center;
   }
 }
 

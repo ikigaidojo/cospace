@@ -55,7 +55,7 @@ group :development, :test do
   gem "rspec-rails",      "3.7.2"                  # https://github.com/rspec/rspec-rails 
   gem "guard-rspec",      "4.7.3",  require: false # https://github.com/guard/guard-rspec
   gem "awesome_print",    "1.8.0"                  # https://github.com/awesome-print 
-  gem 'simplecov',        "0.16.1", require: false # https://github.com/colszowka/simplecov
+  gem "simplecov",        "0.16.1", require: false # https://github.com/colszowka/simplecov
   gem "shoulda-matchers", "3.1.2"                  # https://github.com/thoughtbot/shoulda-matchers
   gem "faker",            "1.8.7"                  # https://github.com/stympy/faker
 end
@@ -76,8 +76,8 @@ gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "devise",             "4.4.3"                  # https://github.com/plataformatec/devise#getting-started
 gem "simple_calendar",    "2.2.7"                  # https://github.com/excid3/simple_calendar
 gem "bootstrap",          "4.1.1"                  # https://github.com/twbs/bootstrap  
-gem 'high_voltage',       "3.1.0"                  # https://github.com/thoughtbot/high_voltage
-gem 'jquery-rails'                                 # https://github.com/rails/jquery-rails
-gem 'money',              "6.11.3"                 # https://github.com/RubyMoney/money
-gem 'wicked_pdf', '~> 1.1'                         # https://github.com/mileszs/wicked_pdf
-gem 'wkhtmltopdf-binary'                           # a dependency of wicked_pdf. 
+gem "high_voltage",       "3.1.0"                  # https://github.com/thoughtbot/high_voltage
+gem "jquery-rails"                                 # https://github.com/rails/jquery-rails
+gem "money",              "6.11.3"                 # https://github.com/RubyMoney/money
+gem "wicked_pdf",         "1.1.0"                  # https://github.com/mileszs/wicked_pdf
+gem "wkhtmltopdf-binary", "0.12.3.1"               # https://github.com/zakird/wkhtmltopdf_binary_gem
