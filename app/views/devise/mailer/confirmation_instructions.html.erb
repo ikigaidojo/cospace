@@ -1,4 +1,4 @@
 <h1>Welcome <%= @email %>!</h1>
 <p>You can confirm your account email through the link below:</p>
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token), class: "btn btn-primary" %></p>
+<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
 <p>Hope you have a great time at cospace!</p>
