@@ -31,15 +31,6 @@ mandalore_room = Room.create(name: "Mandalore", description: "Cozy room located 
   wade_admin.rooms << room  
 end
 
-room_booking_1 = RoomBooking.create(name: "Booking1", description: Faker::Lorem.sentence, price: 95000, location: "Launch Garage", date_booked: DateTime.now )
-room_booking_2 = RoomBooking.create(name: "Booking2", description: Faker::Lorem.sentence, price: 85000, location: "Launch Garage", date_booked: DateTime.now )
-room_booking_3 = RoomBooking.create(name: "Booking3", description: Faker::Lorem.sentence, price: 75000, location: "Launch Garage", date_booked: DateTime.now )
-room_booking_4 = RoomBooking.create(name: "Booking4", description: Faker::Lorem.sentence, price: 65000, location: "Launch Garage", date_booked: DateTime.now )
-room_booking_5 = RoomBooking.create(name: "Booking5", description: Faker::Lorem.sentence, price: 55000, location: "Launch Garage", date_booked: DateTime.now )
-room_booking_6 = RoomBooking.create(name: "Booking6", description: Faker::Lorem.sentence, price: 45000, location: "Launch Garage", date_booked: DateTime.now )
-room_booking_7 = RoomBooking.create(name: "Booking7", description: Faker::Lorem.sentence, price: 35000, location: "Launch Garage", date_booked: DateTime.now )
-room_booking_8 = RoomBooking.create(name: "Booking8", description: Faker::Lorem.sentence, price: 25000, location: "Launch Garage", date_booked: DateTime.now )
-
 # create location
 Location.create(
   name: "Launch Garage", 
@@ -52,59 +43,84 @@ Location.create(
   map: "https://goo.gl/maps/qg2brUptdNE2")
 
 
+# create resources
+# projector
+projector = Resource.create(name: "projector", price: 4000)
+# wade_admin.resources.push(projector)
+
+# printer
+printer = Resource.create(name: "printer", price: 3500)
+    # wade_admin.resources << printer
+
+
+# tim booked projector 2018-05-05 (5, june)
+projector_booking = ResourceBooking.create(name: "projector booking", date_booked: DateTime.parse("2018-10-05"), price: 4000)
+
+    # tim_member.resource_bookings << projector_booking
+    # projector.resource_bookings.push(projector_booking)
+
+# mara booked printer 2018-05-05 (5, june)
+printer_booking = ResourceBooking.create(name: "printer booking", date_booked: DateTime.parse("2018-10-05"), price: 3500)
+
+    # mara_member.resource_bookings << printer_booking
+    # printer.resource_bookings.push(printer_booking)
+
+
+
+
+
 # Mandalore Room and Kashyyyk Room booked by Mara on 2018/06/25
-room_booking = RoomBooking.create(date_booked: DateTime.parse("2018-06-25"))
+room_booking = RoomBooking.create(name: "Booking1", facilities: "some pencils, paper, power in tables, water, air-conditioning, coffee", description: "a pretty nice room nestled in the back of launch garage", price: 9430, location: "Launch Garage", date_booked: DateTime.parse("2018-10-05"))
 mandalore_room.room_bookings << room_booking
 mara_member.room_bookings << room_booking
 
-room_booking = RoomBooking.create(date_booked: DateTime.parse("2018-06-25"))
+room_booking = RoomBooking.create(name: "Booking1", facilities: "some pencils, paper, power in tables, water, air-conditioning, coffee", description: "a pretty nice room nestled in the back of launch garage", price: 9430, location: "Launch Garage", date_booked: DateTime.parse("2018-10-05"))
 kashyyyk_room.room_bookings << room_booking
 mara_member.room_bookings << room_booking
 
 
-
 #Two rooms booked by Tim 
-room_booking = RoomBooking.create(name: "Booking1", member_id: 3, facilities: "some pencils, paper, power in tables, water, air-conditioning, coffee", description: "a pretty nice room nestled in the back of launch garage", price: 9430, location: "Launch Garage", date_booked: DateTime.parse("2018-10-05")  )
+room_booking = RoomBooking.create(name: "Booking1", facilities: "some pencils, paper, power in tables, water, air-conditioning, coffee", description: "a pretty nice room nestled in the back of launch garage", price: 9430, location: "Launch Garage", date_booked: DateTime.parse("2018-10-05"))
 endor_room.room_bookings << room_booking
 tim_member.room_bookings << room_booking
 
-room_booking = RoomBooking.create(name: "Booking1", member_id: 3, facilities: " a bathtub, a chef who can only cook salmon, three baby goats, some rubber duckys for the bath", description: "a quirky room, not the kind you would usually work in, but charming.", price: 9430, location: "Launch Garage", date_booked: DateTime.parse("2018-10-05") )
+room_booking = RoomBooking.create(name: "Booking1", facilities: " a bathtub, a chef who can only cook salmon, three baby goats, some rubber duckys for the bath", description: "a quirky room, not the kind you would usually work in, but charming.", price: 9430, location: "Launch Garage", date_booked: DateTime.parse("2018-10-05") )
 hoth_room.room_bookings << room_booking
 tim_member.room_bookings << room_booking
 
 
 # Kashyyyk Room booked by Wendy on 06/27/2018
-room_booking = RoomBooking.create(date_booked: DateTime.parse("2018-06-27"))
+room_booking = RoomBooking.create(name: "Booking1", facilities: "some pencils, paper, power in tables, water, air-conditioning, coffee", description: "a pretty nice room nestled in the back of launch garage", price: 9430, location: "Launch Garage", date_booked: DateTime.parse("2018-10-05"))
 kashyyyk_room.room_bookings << room_booking
 wendy_member.room_bookings << room_booking
 
 
 
 # Hoth Room and Tatooine Room booked by Mara on 06/28/2018
-room_booking = RoomBooking.create(date_booked: DateTime.parse("2018-06-28"))
+room_booking = RoomBooking.create(name: "Booking1", facilities: "some pencils, paper, power in tables, water, air-conditioning, coffee", description: "a pretty nice room nestled in the back of launch garage", price: 9430, location: "Launch Garage", date_booked: DateTime.parse("2018-10-05"))
 hoth_room.room_bookings << room_booking
 tina_member.room_bookings << room_booking
 
-room_booking = RoomBooking.create(date_booked: DateTime.parse("2018-06-28"))
+room_booking = RoomBooking.create(name: "Booking1", facilities: "some pencils, paper, power in tables, water, air-conditioning, coffee", description: "a pretty nice room nestled in the back of launch garage", price: 9430, location: "Launch Garage", date_booked: DateTime.parse("2018-10-05"))
 tatooine_room.room_bookings << room_booking
 tina_member.room_bookings << room_booking
 
 
 
 # Mandalore Room, Kashyyyk Room, Endor Room and Tatooine Room booked by Mara on 06/25/2018
-room_booking = RoomBooking.create(date_booked: DateTime.parse("2018-06-29"))
+room_booking = RoomBooking.create(name: "Booking1", facilities: "some pencils, paper, power in tables, water, air-conditioning, coffee", description: "a pretty nice room nestled in the back of launch garage", price: 9430, location: "Launch Garage", date_booked: DateTime.parse("2018-10-05"))
 mandalore_room.room_bookings << room_booking
 frida_member.room_bookings << room_booking
 
-room_booking = RoomBooking.create(date_booked: DateTime.parse("2018-06-29"))
+room_booking = RoomBooking.create(name: "Booking1", facilities: "some pencils, paper, power in tables, water, air-conditioning, coffee", description: "a pretty nice room nestled in the back of launch garage", price: 9430, location: "Launch Garage", date_booked: DateTime.parse("2018-10-05"))
 kashyyyk_room.room_bookings << room_booking
 frida_member.room_bookings << room_booking
 
-room_booking = RoomBooking.create(date_booked: DateTime.parse("2018-06-29"))
+room_booking = RoomBooking.create(name: "Booking1", facilities: "some pencils, paper, power in tables, water, air-conditioning, coffee", description: "a pretty nice room nestled in the back of launch garage", price: 9430, location: "Launch Garage", date_booked: DateTime.parse("2018-10-05"))
 endor_room.room_bookings << room_booking
 frida_member.room_bookings << room_booking
 
-room_booking = RoomBooking.create(date_booked: DateTime.parse("2018-06-29"))
+room_booking = RoomBooking.create(name: "Booking1", facilities: "some pencils, paper, power in tables, water, air-conditioning, coffee", description: "a pretty nice room nestled in the back of launch garage", price: 9430, location: "Launch Garage", date_booked: DateTime.parse("2018-10-05"))
 tatooine_room.room_bookings << room_booking
 frida_member.room_bookings << room_booking
 

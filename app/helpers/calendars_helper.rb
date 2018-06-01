@@ -2,11 +2,19 @@ module CalendarsHelper
 
   def generate_avaliable_rooms(date) 
     spare_rooms = []
+    spare_resources = []
     
     Room.all.each do |room|
       room_booked = room.room_bookings.where(date_booked: DateTime.parse(date))
       if room_booked.empty? 
         spare_rooms << [room.name, room.description, room.price, room.facilities, room.id]
+      end
+    end
+
+    Resource.all.each do |resource|
+      resources_booked = resource.resource_bookings.where(date_booked: DateTime.parse(date))
+      if resources_booked.empty? 
+        spare_resources << [resource.name, resource.price]
       end
     end
 
@@ -16,11 +24,13 @@ module CalendarsHelper
 
       ######################## ----- list of rooms  ----- ########################
       # adds div classes for the LIST of rooms
-      html.concat("<div class='col-4'>
-                    <div class='list-group' id='list-tab' role='tablist'>
-                      <h5> Select a room </h5>
+      html.concat("<div class='col-md-4'>
+                    <div class='list-group' id='list-tab' role='tablist'>")
+
+      # ----------- room section ------------
+      html.concat("<h5> Select a room </h5>
                       <small> These rooms are available on #{date}</small>")
-      
+     
       # create list of room names. 
       spare_rooms.each do |room|
         room_name = room[0]
@@ -36,22 +46,44 @@ module CalendarsHelper
             aria-controls='#{ room_name }'> #{ room_name }  
           </a>")
       end
+
+# ----------- resources test section ----------
+      html.concat("<h5> Select a resource </h5>
+                      <small> These resources are available on #{date}</small>")
+      # create list of resources
+      spare_resources.each do |resource|
+        resource_name = resource[0]
+        resource_price = resource[1]
+
+      
+
+      html.concat(
+          "<a class = 'list-group-item', role='tab'> 
+            #{resource_name}
+          </a>")
+      end
+
       # end divs for list divs
       html.concat("</div> </div>")
 
+
+
       ######################## ----- descriptions  ----- ########################
       # create divs for descriptions
-      html.concat("<div class='col-8'>
+      html.concat("<div class='col-md-8'>
                     <div class='tab-content' id='nav-tabContent'>")
       
       # create descriptions of rooms. 
       spare_rooms.each do |room|
         room_name = room[0]
         description = room[1]
-        price = ('%.2f' % (room[2].to_i/100.0)) # or install money gem
+        price = Money.new(room[2], "USD").format 
         member_id = current_member.id
         facilities = room[3]
         room_id = room[4]
+        resource_id = "inf a way to call it in calendar_helper, line84"
+        resource_name = spare_resources[0]
+        resource_price = spare_resources[1]
 
         html.concat("<div 
                       class='tab-pane fade' 
@@ -66,7 +98,7 @@ module CalendarsHelper
                       Price: $#{ price } 
                       <br></p>") 
 
-        #create "book now" that pops up the modal
+        # "book now" that triggeres the modal
         html.concat("<br> 
                       <button type='button'
                       class='btn btn-primary' 
@@ -75,7 +107,7 @@ module CalendarsHelper
                       Book #{room_name} 
                     </button>") 
 
-        # create  modal for "book now" button
+        # create modal 
         html.concat("<div 
                       class='modal fade' 
                       id='#{room_name}Modal' 
@@ -108,12 +140,12 @@ module CalendarsHelper
                               class='btn btn-secondary' 
                               data-dismiss='modal'
                             > Cancel </button>
-
+                            
                             <button 
                             type='button' 
                             class='btn btn-success' 
                             value='Input Button' 
-                            onclick='confirm_booking( `#{date}`, `#{room_id}`,`#{member_id}`,)'
+                            onclick='confirm_booking( `#{date}`, `#{room_id}`,`#{member_id}`, `#{resource_id}`)'
                             > Confirm </button>    
                           </div>
 
@@ -132,11 +164,12 @@ module CalendarsHelper
 
     #creates the confirm_booking function
     html.concat('<script>
-                  function confirm_booking( date, room_id, member_id ) {
+                  function confirm_booking( date, room_id, member_id, resource_id ) {
                       $.post(`/invoices/book_room`, {
                         date: JSON.stringify(date), 
                         room_id: JSON.parse(room_id),
-                        member_id: JSON.parse(member_id)
+                        member_id: JSON.parse(member_id),
+                        resource_id: JSON.stringify(resource_id)
                       });
                   } 
                 </script>')
