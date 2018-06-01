@@ -24,7 +24,7 @@ class Member < ApplicationRecord
   has_many   :resource_bookings
   has_many   :events
   has_many   :event_attendees
-  belongs_to :admin, optional: true
-  belongs_to :location
+  belongs_to :admin,    optional: true
+  belongs_to :location, optional: true
 
 end
