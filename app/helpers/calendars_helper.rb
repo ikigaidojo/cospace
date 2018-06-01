@@ -3,16 +3,20 @@ module CalendarsHelper
   def generate_avaliable_rooms(date) 
     spare_rooms = []
     spare_resources = []
+
+    ugly_date = date
+    date = DateTime.parse(date).strftime("%e %b %Y")
+
     
     Room.all.each do |room|
-      room_booked = room.room_bookings.where(date_booked: DateTime.parse(date))
+      room_booked = room.room_bookings.where(date_booked: ugly_date)
       if room_booked.empty? 
         spare_rooms << [room.name, room.description, room.price, room.facilities, room.id]
       end
     end
 
     Resource.all.each do |resource|
-      resources_booked = resource.resource_bookings.where(date_booked: DateTime.parse(date))
+      resources_booked = resource.resource_bookings.where(date_booked: ugly_date)
       if resources_booked.empty? 
         spare_resources << [resource.name, resource.price]
       end
@@ -95,7 +99,7 @@ module CalendarsHelper
                       <br>
                       Facilities include: #{ facilities }
                       <br>
-                      Price: $#{ price } 
+                      Price: #{ price } 
                       <br></p>") 
 
         # "book now" that triggeres the modal
@@ -130,7 +134,7 @@ module CalendarsHelper
                             <br>
                             On Date: #{date}
                             <br>
-                            For $#{price}
+                            For #{price}
                             <br>
                             <br>
                           </div>
