@@ -26,26 +26,20 @@
   
 </div>
 
-<%resource_name = "projector" 
-  resource_price = 3000
-  unit = "day" %>
-
  <!--  note these  need to be specified in seeds.rb. Also unit models/contorller need making.  -->
+
+ <% unit = "day" %>
 
 <hr>
 Booking of <%= @booked.name.capitalize %> room.<br/>
 Rate: <%= Money.new(@booked.price, "USD").format %>/<%= unit %><br/>
 Quantity: 1 <br/> <br/>
 
-Booking of <%= resource_name.capitalize %>.<br/>
-Rate: <%= Money.new(resource_price, "USD").format %>/<%= unit %><br/>
-Quantity: 1
-
 <div class=" container text-right">
   <%= @booked.name.capitalize %>: <%= Money.new(@booked.price, "USD").format %><br/>
-  <%= resource_name.capitalize %>: <%= Money.new(resource_price, "USD").format %>
+  
   <hr>
- <strong>Total: <%= Money.new(@booked.price + resource_price, "USD").format %></strong>
+ <strong>Total: <%= Money.new(@booked.price, "USD").format %></strong>
 </div> 
 
 <br/><br/><br/>
