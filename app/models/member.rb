@@ -25,6 +25,6 @@ class Member < ApplicationRecord
   has_many   :events
   has_many   :event_attendees
   belongs_to :admin, optional: true
-  belongs_to :location
+  # belongs_to :location
 
 end
