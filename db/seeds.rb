@@ -14,6 +14,11 @@ wendy_member = Member.create(first_name: "Wendy", last_name: "Stanfield", phone_
  tina_member = Member.create(first_name: "Tina",  last_name: "Matlock",   phone_number: "901-328-3674", gender: "female", password: "tina.matlock@yahoo.com",     email: "tina.matlock@yahoo.com",     confirmed_at: DateTime.now)
 frida_member = Member.create(first_name: "Frida", last_name: "Roux",      phone_number: "541-345-5308", gender: "female", password: "frida.roux@yahoo.com",       email: "frida.roux@yahoo.com",       confirmed_at: DateTime.now)
  
+ # create "admin"
+
+joe_admin = Member.create(first_name: "Joe",  last_name: "Admin", phone_number: "334-451-6542", gender: "male", password: "joe.admin@gmail.com", email: "joe.admin@gmail.com", confirmed_at: DateTime.now)
+steve_admin = Member.create(first_name: "steve",  last_name: "Admin", phone_number: "234-231-0987", gender: "male", password: "steve.admin@gmail.com", email: "steve.admin@gmail.com", confirmed_at: DateTime.now)
+
 
 mandalore_room = Room.create(name: "Mandalore", description: "Cozy room located at the back of launchgarage, othersie known as the engine room", location: "Launch Garage", price: 95000, facilities: "a tv, a airconditioner, some water from the water container, power, tables, refridgerator, white-board and markers.")
  kashyyyk_room = Room.create(name: "Kashyyyk",  description: Faker::Lorem.sentence, location: "Launch Garage", price: 85000, facilities: Faker::Lorem.sentence)
