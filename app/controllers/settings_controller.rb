@@ -29,7 +29,7 @@ class SettingsController < ApplicationController
       # flash[:notice] = "Success"
     else
       # render "index"
-      redirect_to settings_path, alert: "Fail"
+      redirect_to settings_path, alert: "Please make sure to input match passwords"
       # @active_panel = PASSWORD_RESET_PANEL_ACTIVE
       # @update_password_panel = true
       # flash[:alert] = "Fail"
@@ -41,7 +41,7 @@ puts "@DEBUG L:47"
     @member = current_member
     if @member.update(member_profile_params)
       # Sign in the user by passing validation in case their password changed
-      # bypass_sign_in(@member)
+      bypass_sign_in(@member)
       redirect_to settings_path, notice: "Success"
 
       # @active_panel = PASSWORD_RESET_PANEL_ACTIVE
@@ -50,7 +50,7 @@ puts "@DEBUG L:47"
     else
       # render "index"
       puts "#{ap @member.errors}"
-      redirect_to settings_path, alert: "Fail"
+      redirect_to settings_path, alert: "Please fill up the necessary fields"
       # @active_panel = PASSWORD_RESET_PANEL_ACTIVE
       # @update_password_panel = true
       # flash[:alert] = "Fail"
@@ -70,5 +70,6 @@ puts "@DEBUG L:47"
     # NOTE: Using `strong_parameters` gem
     params.require(:member).permit(:first_name, :last_name, :email, :gender, :phone_number)
   end
+
 end 
 

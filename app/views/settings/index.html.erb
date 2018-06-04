@@ -16,36 +16,32 @@
 
 <!-- Tab content -->
 <div class="tab-content" id="pills-tabContent">
-  <!-- Account informaton tab pane -->
+  <!-- Edit Profile tab pane -->
   <div class="tab-pane fade show<%= account_information(@active_panel) %>" id="pills-basic" role="tabpanel" aria-labelledby="pills-basic-tab">
     <div class="container">
       <div class="mx-auto" style="max-width: 30rem;">
         <%= form_for(@member, url: { action: "update_profile" } ) do |f| %>
+        <%= puts "#{ap @member.errors}" %>
           <div class="form-group">
-            <!-- <input type="email" class="form-control" placeholder="First Name"> -->
              <%= f.text_field :first_name, class: "form-control", placeholder: "First Name" %>
           </div>
 
           <div class="form-group">
-            <!-- <input type="email" class="form-control" placeholder="Last Name"> -->
             <%= f.text_field :last_name, class: "form-control", placeholder: "Last Name" %>
           </div>
           <div class="form-group">
-            <!-- <input type="text" class="form-control" placeholder="Email"> -->
              <%= f.email_field :email, class: "form-control", placeholder: "Email" %>
           </div>
 
           <div class="form-group">
-              <%= f.select :gender, options_for_select([["Gender", ""],["Male", "Male"], ["Female", "Female"], ["Other", "Other"]]) %>
+              <%= f.select :gender, options_for_select([["Gender", ""],["Male", "Male"], ["Female", "Female"], ["Other", "Other"]]), {}, { class: "form-control" }%>
           </div>
 
           <div class="form-group">
-            <!-- <input type="text" class="form-control" placeholder="Phone Number"> -->
             <%= f.text_field :phone_number, class: "form-control", placeholder: "Phone Number" %>
           </div>
 
           <div class="form-group text-right">
-            <!-- <button type="submit" class="btn btn-success">Update</button> -->
             <%= f.submit 'Update Profile', class: "btn btn-success" %>
           </div>
         <% end %>
@@ -56,11 +52,10 @@
       </div>
     </div>
   </div>
-  <!-- Password reset tab pane -->
+  <!-- Change Password tab pane -->
   <div class="tab-pane fade show<%= password_reset(@active_panel) %>" id="pills-password" role="tabpanel" aria-labelledby="pills-password-tab">
     <div class="container">
       <div class="mx-auto" style="max-width: 30rem;">
-        <!-- <h4 class= "text-left font-weight-bold">Change Your Password</h4> -->
          <%= form_for(@member, url: { action: "update_password" } ) do |f| %>
      
         <div class="form-group text-left">
@@ -116,7 +111,7 @@
     </div>
   </div>
   -->
-  <!-- Notification tab pane -->
+  <!-- Email Notification tab pane -->
   <div class="tab-pane fade show <%= notification(@active_panel) %>" id="pills-notification" role="tabpanel" aria-labelledby="pills-notification-tab">
     <div class="container">
       <div class="mx-auto" style="max-width: 35rem;">
