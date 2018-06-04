@@ -41,11 +41,14 @@ Rails.application.routes.draw do
   resource :setting, :only => [] do
     collection do
       patch "update_password"
-      patch "update_profile"
+      
     end
   end
   
   resources :settings, :only => [:index] do
+    collection do
+      patch "update_profile"
+    end
   end  
   
  end 

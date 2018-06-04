@@ -20,38 +20,33 @@
   <div class="tab-pane fade show<%= account_information(@active_panel) %>" id="pills-basic" role="tabpanel" aria-labelledby="pills-basic-tab">
     <div class="container">
       <div class="mx-auto" style="max-width: 30rem;">
-        <%= form_for(@member, url: { action: "update_profile" } ) do |n| %>
+        <%= form_for(@member, url: { action: "update_profile" } ) do |f| %>
           <div class="form-group">
             <!-- <input type="email" class="form-control" placeholder="First Name"> -->
-             <%= n.text_field :first_name, class: "form-control", placeholder: "First Name" %>
+             <%= f.text_field :first_name, class: "form-control", placeholder: "First Name" %>
           </div>
 
           <div class="form-group">
             <!-- <input type="email" class="form-control" placeholder="Last Name"> -->
-            <%= n.text_field :last_name, class: "form-control", placeholder: "Last Name" %>
+            <%= f.text_field :last_name, class: "form-control", placeholder: "Last Name" %>
           </div>
           <div class="form-group">
             <!-- <input type="text" class="form-control" placeholder="Email"> -->
-             <%= n.email_field :email, class: "form-control", placeholder: "Email" %>
+             <%= f.email_field :email, class: "form-control", placeholder: "Email" %>
           </div>
 
           <div class="form-group">
-              <select class="form-control">
-              <option value="Male">Gender</option>
-              <option value="Male">Male</option>
-              <option value="Female">Female</option>
-              <option value="Male">Other</option>
-              </select>
-            </div>
+              <%= f.select :gender, options_for_select([["Gender", ""],["Male", "Male"], ["Female", "Female"], ["Other", "Other"]]) %>
+          </div>
 
           <div class="form-group">
             <!-- <input type="text" class="form-control" placeholder="Phone Number"> -->
-            <%= n.text_field :phone_number, class: "form-control", placeholder: "Phone Number" %>
+            <%= f.text_field :phone_number, class: "form-control", placeholder: "Phone Number" %>
           </div>
 
           <div class="form-group text-right">
             <!-- <button type="submit" class="btn btn-success">Update</button> -->
-            <%= n.submit 'Update Profile', class: "btn btn-success" %>
+            <%= f.submit 'Update Profile', class: "btn btn-success" %>
           </div>
         <% end %>
 
