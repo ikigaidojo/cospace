@@ -22,17 +22,17 @@ class SettingsController < ApplicationController
     if @member.update_with_password(member_params)
       # Sign in the user by passing validation in case their password changed
       bypass_sign_in(@member)
-      # redirect_to settings_path, notice: "saddsa"
+      redirect_to settings_path, notice: "Success"
 
-      @active_panel = PASSWORD_RESET_PANEL_ACTIVE
-      @update_password_panel = true
-      flash[:notice] = "Success"
+      # @active_panel = PASSWORD_RESET_PANEL_ACTIVE
+      # @update_password_panel = true
+      # flash[:notice] = "Success"
     else
-      #render "index"
-      #redirect_to settings_path, alert: "incorrect password"
-       @active_panel = PASSWORD_RESET_PANEL_ACTIVE
-      @update_password_panel = true
-      flash[:alert] = "Fail"
+      # render "index"
+      redirect_to settings_path, alert: "Fail"
+      # @active_panel = PASSWORD_RESET_PANEL_ACTIVE
+      # @update_password_panel = true
+      # flash[:alert] = "Fail"
     end
   end
 
@@ -41,5 +41,31 @@ class SettingsController < ApplicationController
   def member_params
     # NOTE: Using `strong_parameters` gem
     params.require(:member).permit(:current_password, :password, :password_confirmation)
+  end
+
+  def update_profile
+    @member = current_member
+    if @member.update(member_profile_params)
+      # Sign in the user by passing validation in case their password changed
+      bypass_sign_in(@member)
+      redirect_to settings_path, notice: "Success"
+
+      # @active_panel = PASSWORD_RESET_PANEL_ACTIVE
+      # @update_password_panel = true
+      # flash[:notice] = "Success"
+    else
+      # render "index"
+      redirect_to settings_path, alert: "Fail"
+      # @active_panel = PASSWORD_RESET_PANEL_ACTIVE
+      # @update_password_panel = true
+      # flash[:alert] = "Fail"
+    end
+  end
+
+  private
+
+  def member_profile_params
+    # NOTE: Using `strong_parameters` gem
+    params.require(:member).permit(:first_name, :last_name, :email, :gender, :phone_number)
   end
 end 
