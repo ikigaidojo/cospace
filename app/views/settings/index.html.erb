@@ -1,13 +1,13 @@
 <h1 class="text-left"> Account Settings</h1>
   <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
     <li class="nav-item">
-      <a class="nav-link<%= account_information(@active_panel) %>" id="pills-basic-tab" data-toggle="pill" href="#pills-basic" role="tab" aria-controls="pills-basic" aria-selected="false">Account Information</a>
+      <a class="nav-link<%= account_information(@active_panel) %>" id="pills-basic-tab" data-toggle="pill" href="#pills-basic" role="tab" aria-controls="pills-basic" aria-selected="false">Edit Profile</a>
     </li>
     <li class="nav-item">
       <a class="nav-link<%= password_reset(@active_panel) %>" id="pills-password-tab" data-toggle="pill" href="#pills-password" role="tab" aria-controls="pills-password" aria-selected="false">Password Reset</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link <%= notification(@active_panel) %>" id="pills-notification-tab" data-toggle="pill" href="#pills-notification" role="tab" aria-controls="pills-notification" aria-selected="false">Notification</a>
+      <a class="nav-link <%= notification(@active_panel) %>" id="pills-notification-tab" data-toggle="pill" href="#pills-notification" role="tab" aria-controls="pills-notification" aria-selected="false">Email Notification</a>
     </li>
     <li class="nav-item">
       <a class="nav-link <%= payment_methods(@active_panel) %>" id="pills-payment-tab" data-toggle="pill" href="#pills-payment" role="tab" aria-controls="pills-payment" aria-selected="false">Payment Methods</a>
@@ -19,7 +19,6 @@
   <!-- Account informaton tab pane -->
   <div class="tab-pane fade show<%= account_information(@active_panel) %>" id="pills-basic" role="tabpanel" aria-labelledby="pills-basic-tab">
     <div class="container-fluid">
-      <h3 class="text-left font-weight-bold">Account Information</h3>
       <br/>
         <form>
           <div class="form-group row container">
@@ -133,8 +132,8 @@
   -->
   <!-- Notification tab pane -->
   <div class="tab-pane fade show <%= notification(@active_panel) %>" id="pills-notification" role="tabpanel" aria-labelledby="pills-notification-tab">
-    <div class="container-fluid">
-      <h3 class="font-weight-bold text-left">Email Notification:</h3>
+    <div class="container">
+      <div class="mx-auto" style="max-width: 35rem;">
         <div class="form-group row">
           <div class="col-sm-2"></div>
           <div class="col-sm-10 text-left">
@@ -165,6 +164,7 @@
             </div>
           </div>
         </div>
+      </div>
     </div>
   </div>
   <!-- Payment tab pane -->
