@@ -22,11 +22,17 @@ class SettingsController < ApplicationController
     if @member.update_with_password(member_params)
       # Sign in the user by passing validation in case their password changed
       bypass_sign_in(@member)
-      redirect_to root_path
-    else
+      # redirect_to settings_path, notice: "saddsa"
+
       @active_panel = PASSWORD_RESET_PANEL_ACTIVE
       @update_password_panel = true
-      render "index"
+      flash[:notice] = "Success"
+    else
+      #render "index"
+      #redirect_to settings_path, alert: "incorrect password"
+       @active_panel = PASSWORD_RESET_PANEL_ACTIVE
+      @update_password_panel = true
+      flash[:alert] = "Fail"
     end
   end
 
