@@ -1,52 +1,29 @@
-<!-- <h1>Profiles#index</h1>
-<p>Find me in app/views/profiles/index.html.erb</p> -->
-
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-
-    <title>Cospace</title>
-  </head>
-  <body>
-    <h1>Profile</h1>
-    <div class="col-12"> <!-- profile ciode goes here -->                      
-        <div class="container">
-          <div class="row">
-            <div class="col-3">
-              <img src="http://via.placeholder.com/200x200" alt="profile picture">
-              <input id="files-upload" type="file" multiple>
-              <span class="showonhover"></span>
-              <input id="selectfile" type="file" name="" style="display: none;" />
-              <div class="form__submit"><button name="button" type="submit" class="btn btn--full">Upload Photo</button></div>
-
-            </div>
-            <div class="col-8">
-              
-              <ul class="list-group-item list-group-item-secondary">
-                <li class="list-group-item text-left">First Name: <%= current_member.first_name%></li>
-                <li class="list-group-item text-left">Last Name: <%= current_member.last_name%></li>
-                <li class="list-group-item text-left">Email: <%= current_member.email %></li>
-                <li class="list-group-item text-left">Phone number: <%= current_member.phone_number %></li>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-3">
+      <h5>Welcome, <%= current_member.first_name%> :)</h5>
+      <img src="http://via.placeholder.com/200x200" alt="profile picture">
+      <input id="files-upload" type="file" multiple>
+      <span class="showonhover"></span>
+      <input id="selectfile" type="file" name="" style="display: none;" />
+        <div class="form__submit"><button name="button" type="submit" class="btn btn--full">Upload Photo</button></div>
+        </div>   
+          
+          <div class="col-9">
+            <ul class="list-group-item list-group-item-secondary">
+              <li class="list-group-item text-left">Email: <%= current_member.email %></li>
+              <li class="list-group-item text-left">Phone number: <%= current_member.phone_number %></li>
               </ul><br><br>
 
-                  <!-- Button Content of Profiles link to Settings -->
-              <div class="container-fluid">
-                <div class="row">
-                  <div class="col-lg-12 text-center">                     
-                    <%= link_to "Edit Profile", settings_path, class: "btn btn-primary btn-sm" %>                       
+<!-- Button Content of Profiles link to Settings -->
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-lg-12 text-center">                     
+                      <%= link_to "Edit Profile", settings_path, class: "btn btn-primary btn-sm" %>                       
+                    </div>
                   </div>
                 </div>
-              </div>
-
-            </div>
           </div>
-        </div>
     </div>
-  </body>
-</html>
+  </div>
+</div>
