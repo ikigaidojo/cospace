@@ -1,9 +1,9 @@
-<div id="pins" class="transition-enabled">
+<div id="rooms" class="transition-enabled">
   <h1>Rooms</h1>
   <%- @rooms.each do |room| %>
     <div class="box panel panel-default">
        <div class="panel-body">
-        <h2><%= room.name %></h2>
+        <h2><%= link_to room.name, room %></h2>
         <p>
           Submitted by 
           <%= room.description %>
@@ -11,5 +11,4 @@
       </div>
     </div>
   <% end %>
-  <p>lorem500</p>
 </div>

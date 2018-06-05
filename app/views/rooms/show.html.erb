@@ -1,0 +1,30 @@
+<div id="room_show" class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="panel panel-default">
+      <div class="panel-heading pin_image"> 
+        <h1><%= @room.name %></h1>
+      </div> 
+      <div class="panel-body">
+       
+        <p><%= @room.description %></p>
+      </div>
+      <div class="panel-footer">
+        <div class="row">
+          <div class="col-md-6">
+            <p class="user">
+               Submitted by 
+            <%= @room.location %>
+            </p>
+          </div> 
+          <div class="col-md-6">
+            <div class="btn-group pull-right">
+              <%= link_to "Back", rooms_path, class: "btn btn-default" %>
+              <%#= link_to "Edit", edit_pin_path, class: "btn btn-default" %>
+              <%#= link_to "Delete", pin_path, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default" %>
+            </div>
+          </div>
+        </div>          
+      </div>      
+    </div>    
+  </div>    
+</div>

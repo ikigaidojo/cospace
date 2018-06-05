@@ -52,7 +52,7 @@ Rails.application.routes.draw do
     end
   end  
 
-  resources :rooms, :only => [:index, :new, :create,] do
+  resources :rooms, :only => [:index, :new, :create, :show] do
   end  
 
   # get "rooms/index"

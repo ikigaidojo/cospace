@@ -1,13 +1,13 @@
 class RoomsController < ApplicationController
-
-  before_action :authenticate_member!
+  before_action :find_room, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_member!, except: [:index, :show]
 
   def index
     @rooms = Room.all
   end
 
   def show
-
+    # @room = Room.find(params[:id])
   end
 
   def new
@@ -19,7 +19,7 @@ class RoomsController < ApplicationController
     @room = Room.new(room_params)
 
     if @room.save
-      redirect_to @room, notice: "Successfully created new Room"
+      redirect_to room_path(@room), notice: "Successfully created new Room"
     else
       render 'new'
     end
@@ -46,6 +46,10 @@ class RoomsController < ApplicationController
   
   def room_params
     params.require(:room).permit(:name, :description, :price, :facilitites, :location)
+  end
+
+  def find_room
+    @room = Room.find(params[:id])
   end
 
 end
