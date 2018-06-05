@@ -80,6 +80,16 @@
           <li>
               <%= link_to 'Settings', settings_path %>
           </li>
+
+           <% unless current_member == nil%>
+            <% if current_member.is_admin == true%>
+              <li>
+                  <%= link_to 'Members', admin_members_path %>
+              </li>
+            <% end %>
+          <% end %> 
+
+
         </ul>
       </div>
         <!-- /#sidebar-wrapper -->

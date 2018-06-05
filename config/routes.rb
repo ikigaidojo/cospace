@@ -53,6 +53,9 @@ Rails.application.routes.draw do
       patch "update_profile"
     end
   end  
+
+  resources :admin_members, :only => [:index] do
+  end
   
  end 
 
