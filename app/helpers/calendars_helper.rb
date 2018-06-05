@@ -6,7 +6,7 @@ module CalendarsHelper
     booked_rooms = []
 
     ugly_date = date
-    date = DateTime.parse(date).strftime("%e %b %Y")
+    date = DateTime.parse(date).strftime("%e %B %Y")
 
     
     Room.all.each do |room|
@@ -29,7 +29,7 @@ module CalendarsHelper
 
       # ----------- room section ------------
       html.concat("<h5> Select a room </h5>
-                      <small> These rooms are available on #{date}</small>")
+                      <small> These rooms are available on <br> #{date}</small>")
      
       # create list of room names (not booked) 
       spare_rooms.each do |room|
@@ -48,7 +48,8 @@ module CalendarsHelper
       end
 
       # create list of BOOKED rooms names for admin
-      if current_member.is_admin == true 
+      if ((current_member.is_admin == true) && (booked_rooms.empty? != true))
+        html.concat(" <br> <small>Only admin can see booked rooms</small>")
         booked_rooms.each do |room|
           room_name = room[0]
           description = room[1]
@@ -64,10 +65,11 @@ module CalendarsHelper
           </a>")
         end
       end
-
-      # end divs for LIST of rooms divs
-      html.concat("</div> </div>")
-
+      #end div for list of unbooked rooms 
+      html.concat("</div>")
+      # end divs for the col-md-4 holding lists of rooms divs
+      html.concat("</div>")
+        
 
       ######################## ----- descriptions  ----- ########################
       
@@ -170,6 +172,13 @@ module CalendarsHelper
           price = Money.new(room[2], "USD").format 
           member_id = current_member.id
           member = Member.where(id: member_id).first
+          member_name = member.first_name.capitalize
+          member_last_name = member.last_name.capitalize
+
+          if current_member.is_admin
+            member_name = "admin"
+            member_last_name = ""
+          end
           facilities = room[3]
           room_id = room[4]
           # resource_id = "find a way to call it in calendar_helper, line84"
@@ -179,22 +188,23 @@ module CalendarsHelper
                         class='tab-pane fade' 
                         id='list-#{ room_name }' 
                         role='tabpanel' aria-labelledby='list-#{ room_name }-list'> 
-                        <h1> #{ room_name } Has been booked by #{member.first_name} </h1>
+                        <h3> #{ room_name } is booked by #{member_name} #{member_last_name} </h3>
                         <br>
                         Description: #{ description }
-                        <br>
                         Facilities include: #{ facilities }
                         <br>
-                        Price: #{ price } 
                         <br></p>") 
 
           # "book now" that triggers the modal
-          html.concat("<br> 
+          html.concat("<small class> As admin, you have the option to delete booking #{member_name} made. 
+                        <br> 
+                        This will cancel their invoice and refund them for this booking, if necessary.</small> 
+                        <br>
                         <button type='button'
                         class='btn btn-primary' 
                         data-toggle='modal' 
                         data-target='##{room_name}Modal'>
-                        DELELTE #{room_name} Booking
+                        Delete booking
                       </button>") 
 
           # create modal 
@@ -208,7 +218,7 @@ module CalendarsHelper
                         <div class='modal-dialog' role='document'>
                           <div class='modal-content'>
                             <div class='modal-header'>
-                              <h5 class='modal-title' id='#{room_name}ModalLabel'>Confirm your booking</h5>
+                              <h5 class='modal-title' id='#{room_name}ModalLabel'>Delete this booking</h5>
                               <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
                                 <span aria-hidden='true'>&times;</span>
                               </button>
@@ -216,11 +226,9 @@ module CalendarsHelper
 
                             <div class='modal-body'>
                               <br> 
-                              You're reserving #{room_name}
+                              You're deleting the #{room_name} booking
                               <br>
-                              On Date: #{date}
-                              <br>
-                              For #{price}
+                              for #{date} 
                               <br>
                               <br>
                             </div>
@@ -233,10 +241,10 @@ module CalendarsHelper
                               
                               <button 
                               type='button' 
-                              class='btn btn-success' 
+                              class='btn btn-danger' 
                               value='Input Button' 
-                              onclick='confirm_booking( `#{date}`, `#{room_id}`,`#{member_id}`)'
-                              > Confirm </button>    
+                              onclick='delete_booking( `#{date}`, `#{room_id}`)'
+                              > Delete booking </button>    
                             </div>
 
                           </div>
@@ -263,6 +271,13 @@ module CalendarsHelper
                         member_id: JSON.parse(member_id),
                       });
                   } 
+
+                  function delete_booking( date, room_id ) {
+                    $.post(`/invoices/delete_booking`, {
+                      date: JSON.stringify(date),
+                      room_id: JSON.parse(room_id)
+                      });
+                  }
                 </script>')
     return html.html_safe 
     

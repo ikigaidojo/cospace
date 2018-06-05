@@ -12,7 +12,7 @@ class InvoicesController < ApplicationController
     @bookings = @bookings.reverse
   end
 
-  def book_room
+  def book_room # runs when "confirm booking" button is clicked in calendar
     date      = params[:date]
     room_id   = params[:room_id].to_i
     member_id = params[:member_id]
@@ -35,11 +35,32 @@ class InvoicesController < ApplicationController
       else 
         redirect_to :back, notice: "#{new_room_booking.name} booking failed"
       end 
-
     else
       logger.info "room does not exist"
     end
   end # book_room end
+
+
+  def delete_booking # runs when "delete booking" button is clicked in calendar
+    date      = DateTime.parse(params[:date])
+    room_id   = params[:room_id].to_i
+
+    booking = RoomBooking.where("date_booked = ? AND room_id = ?", date, room_id).first
+    logger.info "----------------------------------"
+    logger.info booking.name
+    logger.info booking.id
+    logger.info booking
+    logger.info "will now delete the #{booking.name} 
+    booking for #{booking.date_booked}."  
+    logger.info "----------------------------------"
+    RoomBooking.destroy(booking.id)
+    logger.info "----------------------------------"
+    logger.info "room booking at id: #{booking.id} destroyed"
+    logger.info "----------------------------------"
+
+
+    redirect_to calendar_calendars_path, notice: "#{booking.name} sucessfully unbooked"
+  end
 
   # this runs when 'invoice' button is clicked
   def create_pdf
