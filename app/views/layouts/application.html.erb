@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Cospace</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -15,7 +16,7 @@
       <div class="container-fluid">
         <!-- div tag in here is just to hold the menu btn and navbar-brand together -->
         <div>
-          <%- if current_member %>
+          <% if current_member %>
             <a href="#menu-toggle" class="btn btn-warning btn-sm" id="menu-toggle">Menu</a>
           <% end %>
           &nbsp;
@@ -26,23 +27,31 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-            <%- if current_member %>
-            <li class="nav-item active">
-              <%= link_to "Member", root_url, class: "nav-link" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "Logout", destroy_member_session_path, class: "nav-link", method: :delete, data: { confirm: "Are you sure?" } %>
-            </li>
+            <% if current_member %>
+              
+              <% if current_member.is_admin == true %>
+                <li class="nav-item active">
+                  <%= link_to "Admin", "", class: "nav-link" %>
+                </li>
+              <% else%>
+                <li class="nav-item active">
+                  <%= link_to "Member", '', class: "nav-link" %>
+                </li>
+              <% end %>
+              
+              <li class="nav-item">
+                <%= link_to "Logout", destroy_member_session_path, class: "nav-link", method: :delete, data: { confirm: "Are you sure?" } %>
+              </li>
             <% else %>
-            <li class="nav-item active">
-              <%= link_to "Home", root_url, class: "nav-link" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "Sign in", new_member_session_path, class: "nav-link" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "Sign up", new_member_registration_path, class: "nav-link" %>
-            </li>
+              <li class="nav-item active">
+                <%= link_to "Home", root_url, class: "nav-link" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "Sign in", new_member_session_path, class: "nav-link" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "Sign up", new_member_registration_path, class: "nav-link" %>
+              </li>
             <% end %>
           </ul>
         </div>

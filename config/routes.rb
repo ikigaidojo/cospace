@@ -35,25 +35,21 @@ Rails.application.routes.draw do
       post "invoices"
       post "book_room"
       get  "create_pdf"
+      post  "delete_booking"
     end
   end
 
   resource :setting, :only => [] do
     collection do
       patch "update_password"
+      
     end
   end
   
   resources :settings, :only => [:index] do
-  end  
-
-  resource :setting, :only => [] do
     collection do
-      patch 'update_password'
-    end  
-  end  
-
-  resources :settings, :only => [:index] do
+      patch "update_profile"
+    end
   end  
   
  end 

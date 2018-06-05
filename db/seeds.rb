@@ -8,16 +8,16 @@
 
 wade_admin   = Admin.create(first_name: "Wade", last_name: "Jacobson", email: "wade.jacobson@example.com")
 
- mara_member = Member.create(first_name: "Mara",  last_name: "Ross",      phone_number: "307-741-9142", gender: "female", password: "mara.ross@gmail.com",        email: "clara.ross@gmail.com",       confirmed_at: DateTime.now)
-  tim_member = Member.create(first_name: "Tim",   last_name: "Smith",     phone_number: "718-879-5628", gender: "male. ", password: "tim.smith@gmail.com",        email: "tim.smith@gmail.com",        confirmed_at: DateTime.now)
-wendy_member = Member.create(first_name: "Wendy", last_name: "Stanfield", phone_number: "256-228-4209", gender: "female", password: "wendy.stanfield@icloud.com", email: "wendy.stanfield@icloud.com", confirmed_at: DateTime.now)
- tina_member = Member.create(first_name: "Tina",  last_name: "Matlock",   phone_number: "901-328-3674", gender: "female", password: "tina.matlock@yahoo.com",     email: "tina.matlock@yahoo.com",     confirmed_at: DateTime.now)
-frida_member = Member.create(first_name: "Frida", last_name: "Roux",      phone_number: "541-345-5308", gender: "female", password: "frida.roux@yahoo.com",       email: "frida.roux@yahoo.com",       confirmed_at: DateTime.now)
+ mara_member = Member.create(first_name: "Mara",  last_name: "Ross",      phone_number: "307-741-9142", gender: "female", password: "mara.ross@gmail.com",        email: "clara.ross@gmail.com",       confirmed_at: DateTime.now, is_admin: false)
+  tim_member = Member.create(first_name: "Tim",   last_name: "Smith",     phone_number: "718-879-5628", gender: "male. ", password: "tim.smith@gmail.com",        email: "tim.smith@gmail.com",        confirmed_at: DateTime.now, is_admin: false)
+wendy_member = Member.create(first_name: "Wendy", last_name: "Stanfield", phone_number: "256-228-4209", gender: "female", password: "wendy.stanfield@icloud.com", email: "wendy.stanfield@icloud.com", confirmed_at: DateTime.now, is_admin: false)
+ tina_member = Member.create(first_name: "Tina",  last_name: "Matlock",   phone_number: "901-328-3674", gender: "female", password: "tina.matlock@yahoo.com",     email: "tina.matlock@yahoo.com",     confirmed_at: DateTime.now, is_admin: false)
+frida_member = Member.create(first_name: "Frida", last_name: "Roux",      phone_number: "541-345-5308", gender: "female", password: "frida.roux@yahoo.com",       email: "frida.roux@yahoo.com",       confirmed_at: DateTime.now, is_admin: false)
  
  # create "admin"
 
-joe_admin = Member.create(first_name: "Joe",  last_name: "Admin", phone_number: "334-451-6542", gender: "male", password: "joe.admin@gmail.com", email: "joe.admin@gmail.com", confirmed_at: DateTime.now)
-steve_admin = Member.create(first_name: "steve",  last_name: "Admin", phone_number: "234-231-0987", gender: "male", password: "steve.admin@gmail.com", email: "steve.admin@gmail.com", confirmed_at: DateTime.now)
+joe_admin = Member.create(first_name: "Joe",  last_name: "Admin", phone_number: "334-451-6542", gender: "male", password: "joe.admin@gmail.com", email: "joe.admin@gmail.com", confirmed_at: DateTime.now, is_admin: true)
+steve_admin = Member.create(first_name: "steve",  last_name: "Admin", phone_number: "234-231-0987", gender: "male", password: "steve.admin@gmail.com", email: "steve.admin@gmail.com", confirmed_at: DateTime.now, is_admin: true)
 
 
 mandalore_room = Room.create(name: "Mandalore", description: "Cozy room located at the back of launchgarage, othersie known as the engine room", location: "Launch Garage", price: 95000, facilities: "a tv, a airconditioner, some water from the water container, power, tables, refridgerator, white-board and markers.")
