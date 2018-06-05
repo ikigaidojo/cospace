@@ -57,7 +57,6 @@ group :development, :test do
   gem "awesome_print",    "1.8.0"                  # https://github.com/awesome-print 
   gem "simplecov",        "0.16.1", require: false # https://github.com/colszowka/simplecov
   gem "shoulda-matchers", "3.1.2"                  # https://github.com/thoughtbot/shoulda-matchers
-  gem "faker",            "1.8.7"                  # https://github.com/stympy/faker
 end
 
 group :development do
@@ -81,3 +80,4 @@ gem "jquery-rails"                                 # https://github.com/rails/jq
 gem "money",              "6.11.3"                 # https://github.com/RubyMoney/money
 gem "wicked_pdf",         "1.1.0"                  # https://github.com/mileszs/wicked_pdf
 gem "wkhtmltopdf-binary", "0.12.3.1"               # https://github.com/zakird/wkhtmltopdf_binary_gem
+gem "faker",              "1.8.7"                  # https://github.com/stympy/faker
