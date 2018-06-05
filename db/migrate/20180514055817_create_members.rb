@@ -5,7 +5,6 @@ class CreateMembers < ActiveRecord::Migration[5.1]
       t.string     :last_name
       t.string     :phone_number
       t.string     :gender
-      t.string     :password
       t.string     :email,              default: "", null: false
       t.string     :encrypted_password, default: "", null: false
       t.string     :reset_password_token

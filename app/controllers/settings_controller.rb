@@ -22,17 +22,39 @@ class SettingsController < ApplicationController
     if @member.update_with_password(member_params)
       # Sign in the user by passing validation in case their password changed
       bypass_sign_in(@member)
-      # redirect_to settings_path, notice: "saddsa"
+      redirect_to settings_path, notice: "Success"
 
-      @active_panel = PASSWORD_RESET_PANEL_ACTIVE
-      @update_password_panel = true
-      flash[:notice] = "Success"
+      # @active_panel = PASSWORD_RESET_PANEL_ACTIVE
+      # @update_password_panel = true
+      # flash[:notice] = "Success"
     else
-      #render "index"
-      #redirect_to settings_path, alert: "incorrect password"
-       @active_panel = PASSWORD_RESET_PANEL_ACTIVE
-      @update_password_panel = true
-      flash[:alert] = "Fail"
+      # render "index"
+      redirect_to settings_path, alert: "Please make sure to input match passwords"
+      # @active_panel = PASSWORD_RESET_PANEL_ACTIVE
+      # @update_password_panel = true
+      # flash[:alert] = "Fail"
+    end
+  end
+
+  def update_profile
+puts "@DEBUG L:47"
+    @member = current_member
+    puts "#{ap @member}"
+    if @member.update(member_profile_params)
+      # Sign in the user by passing validation in case their password changed
+      # bypass_sign_in(@member)
+      redirect_to settings_path, notice: "Success"
+
+      # @active_panel = PASSWORD_RESET_PANEL_ACTIVE
+      # @update_password_panel = true
+      # flash[:notice] = "Success"
+    else
+      # render "index"
+      puts "#{ap @member.errors}"
+      redirect_to settings_path, alert: "Please fill up the necessary fields"
+      # @active_panel = PASSWORD_RESET_PANEL_ACTIVE
+      # @update_password_panel = true
+      # flash[:alert] = "Fail"
     end
   end
 
@@ -42,4 +64,13 @@ class SettingsController < ApplicationController
     # NOTE: Using `strong_parameters` gem
     params.require(:member).permit(:current_password, :password, :password_confirmation)
   end
+
+  private
+
+  def member_profile_params
+    # NOTE: Using `strong_parameters` gem
+    params.require(:member).permit(:first_name, :last_name, :email, :gender, :phone_number)
+  end
+
 end 
+
