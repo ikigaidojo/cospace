@@ -51,7 +51,14 @@ Rails.application.routes.draw do
       patch "update_profile"
     end
   end  
-  
+
+  resources :rooms, :only => [:index, :new, :create,] do
+  end  
+
+  # get "rooms/index"
+  # get "rooms/new"
+  # get "rooms/create"
+
  end 
 
 
