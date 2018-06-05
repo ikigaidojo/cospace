@@ -54,12 +54,8 @@ class InvoicesController < ApplicationController
     booking for #{booking.date_booked}."  
     logger.info "----------------------------------"
     RoomBooking.destroy(booking.id)
-    logger.info "----------------------------------"
-    logger.info "room booking at id: #{booking.id} destroyed"
-    logger.info "----------------------------------"
 
-
-    redirect_to calendar_calendars_path, notice: "#{booking.name} sucessfully unbooked"
+    redirect_to calendar_calendars_path, notice: "#{booking.name} booking on #{date.strftime("%e %b %Y")} successfully deleted"
   end
 
   # this runs when 'invoice' button is clicked
