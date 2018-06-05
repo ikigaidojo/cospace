@@ -1,8 +1,8 @@
 module CalendarsHelper
 
   def generate_avaliable_rooms(date) 
+    #2d arrays containing attributes of rooms
     spare_rooms = []
-    spare_resources = []
     booked_rooms = []
 
     ugly_date = date
@@ -31,7 +31,7 @@ module CalendarsHelper
       html.concat("<h5> Select a room </h5>
                       <small> These rooms are available on #{date}</small>")
      
-      # create list of room names. 
+      # create list of room names (not booked) 
       spare_rooms.each do |room|
         room_name = room[0]
         description = room[1]
@@ -47,7 +47,7 @@ module CalendarsHelper
           </a>")
       end
 
-      # list creation for admin
+      # create list of BOOKED rooms names for admin
       if current_member.is_admin == true 
         booked_rooms.each do |room|
           room_name = room[0]
@@ -57,31 +57,15 @@ module CalendarsHelper
 
           html.concat(
             "<a 
-              class = 'list-group-item list-group-item-action ' 
-              id='list-#{ room_name }-list' 
-              data-toggle='list' href='#list-#{ room_name }' role='tab' 
-              aria-controls='#{ room_name }'> #{ room_name } is Booked 
-            </a>")
+            class = 'list-group-item list-group-item-action' 
+            id='list-#{ room_name }-list' 
+            data-toggle='list' href='#list-#{ room_name }' role='tab' 
+            aria-controls='#{ room_name }'> #{ room_name } is booked
+          </a>")
         end
       end
 
-# ----------- resources test section ----------
-      # html.concat("<h5> Select a resource </h5>
-      #                 <small> These resources are available on #{date}</small>")
-      # # create list of resources
-      # spare_resources.each do |resource|
-      #   resource_name = resource[0]
-      #   resource_price = resource[1]
-
-      
-
-      # html.concat(
-      #     "<a class = 'list-group-item', role='tab'> 
-      #       #{resource_name}
-      #     </a>")
-      # end
-
-      # end divs for list divs
+      # end divs for LIST of rooms divs
       html.concat("</div> </div>")
 
 
@@ -91,7 +75,7 @@ module CalendarsHelper
       html.concat("<div class='col-md-8'>
                     <div class='tab-content' id='nav-tabContent'>")
       
-      # create descriptions of rooms (member). 
+      # create descriptions of rooms (not booked). 
       spare_rooms.each do |room|
         room_name = room[0]
         description = room[1]
@@ -99,7 +83,7 @@ module CalendarsHelper
         member_id = current_member.id
         facilities = room[3]
         room_id = room[4]
-        # resource_id = "inf a way to call it in calendar_helper, line84"
+        # resource_id = "find a way to call it in calendar_helper, line84"
         # resource_name = spare_resources[0]
         # resource_price = spare_resources[1]
 
@@ -116,7 +100,7 @@ module CalendarsHelper
                       Price: #{ price } 
                       <br></p>") 
 
-        # "book now" that triggeres the modal
+        # "book now" button that triggers the modal
         html.concat("<br> 
                       <button type='button'
                       class='btn btn-primary' 
@@ -125,7 +109,7 @@ module CalendarsHelper
                       Book #{room_name} 
                     </button>") 
 
-        # create modal 
+        # create modal (not booked)
         html.concat("<div 
                       class='modal fade' 
                       id='#{room_name}Modal' 
@@ -171,13 +155,16 @@ module CalendarsHelper
                       </div>
                     </div>")
 
-        html.concat('</div>') #ending of the fade panel
+          
+        html.concat('</div>') #If user is not admin, it still works
       end # end of the loop that creates room descriptions
 
 ############# modal creation for admin ####################
       if current_member.is_admin == true
+
+
         # create admin descriptions of rooms. 
-        spare_rooms.each do |room|
+        booked_rooms.each do |room|
           room_name = room[0]
           description = room[1]
           price = Money.new(room[2], "USD").format 
@@ -188,7 +175,6 @@ module CalendarsHelper
           # resource_id = "find a way to call it in calendar_helper, line84"
           # resource_name = spare_resources[0]
           # resource_price = spare_resources[1]
-
           html.concat("<div 
                         class='tab-pane fade' 
                         id='list-#{ room_name }' 
@@ -257,11 +243,10 @@ module CalendarsHelper
                         </div>
                       </div>")
 
-          html.concat('</div>') #ending of the fade panel
+          html.concat('</div>') #ending of the fade panel, added to every description creation. 
         end # end of the loop that creates room descriptions
+
       end # end of admin conditional
-
-
 
       #end divs for descriptions
       html.concat('</div> </div>')
