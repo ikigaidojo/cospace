@@ -1,29 +1,17 @@
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-3">
-      <h5>Welcome, <%= current_member.first_name%> :)</h5>
-      <img src="http://via.placeholder.com/200x200" alt="profile picture">
-      <input id="files-upload" type="file" multiple>
-      <span class="showonhover"></span>
-      <input id="selectfile" type="file" name="" style="display: none;" />
-        <div class="form__submit"><button name="button" type="submit" class="btn btn--full">Upload Photo</button></div>
-        </div>   
-          
-          <div class="col-9">
-            <ul class="list-group-item list-group-item-secondary">
-              <li class="list-group-item text-left">Email: <%= current_member.email %></li>
-              <li class="list-group-item text-left">Phone number: <%= current_member.phone_number %></li>
-              </ul><br><br>
-
-<!-- Button Content of Profiles link to Settings -->
-                <div class="container-fluid">
-                  <div class="row">
-                    <div class="col-lg-12 text-center">                     
-                      <%= link_to "Edit Profile", settings_path, class: "btn btn-primary btn-sm" %>                       
-                    </div>
-                  </div>
-                </div>
-          </div>
+  <div class="row"> 
+    <div class="col-md-12">
+      <ul class="list-group-item list-group-item-primary">
+        <li class="list-group-item text-center">
+          <img src="http://via.placeholder.com/180x180" alt="profile picture"><br><br>
+          <button class="btn btn-secondary">Upload Photo</button>
+        </li>
+        <li class="list-group-item text-left">Name: <%= current_member.first_name %> <%= current_member.last_name %></li>
+        <li class="list-group-item text-left">Email: <%= current_member.email %></li>
+        <li class="list-group-item text-left">Gender: <%= current_member.gender %></li>
+        <li class="list-group-item text-left">Phone: <%= current_member.phone_number %></li>
+         <li class="list-group-item text-right"><%= link_to "Edit Profile", settings_path, class: "btn btn-primary" %></li>
+      </ul>
+      </div>
     </div>
-  </div>
 </div>
