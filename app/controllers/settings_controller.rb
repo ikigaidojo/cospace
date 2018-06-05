@@ -39,9 +39,10 @@ class SettingsController < ApplicationController
   def update_profile
 puts "@DEBUG L:47"
     @member = current_member
+    puts "#{ap @member}"
     if @member.update(member_profile_params)
       # Sign in the user by passing validation in case their password changed
-      bypass_sign_in(@member)
+      # bypass_sign_in(@member)
       redirect_to settings_path, notice: "Success"
 
       # @active_panel = PASSWORD_RESET_PANEL_ACTIVE
