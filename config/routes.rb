@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'walk_ins/index'
+
   get "index/index"
   root to: "index#index"
   
