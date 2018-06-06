@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'mailer/UserMailer'
+
   get 'walk_ins/index'
 
   get "index/index"
@@ -58,6 +60,12 @@ Rails.application.routes.draw do
   end
   
   resources :walk_ins, :only => [:index, :walkin_member] do
+  end
+
+  resources :walk_ins do
+    member do
+      get :confirm_email
+    end
   end
 end 
 

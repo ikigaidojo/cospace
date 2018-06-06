@@ -17,4 +17,12 @@ class WalkInsController < ApplicationController
       redirect_to walkins_path
     end
   end
+
+=begin
+  def email_confirmation
+   resources :walkin_member do
+    walkin_member do
+      get :confirm_email
+  end
+=end
 end
