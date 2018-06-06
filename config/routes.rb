@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'walk_ins/index'
+
   get "index/index"
   root to: "index#index"
   
@@ -55,10 +57,9 @@ Rails.application.routes.draw do
   resources :rooms, :only => [:index, :new, :create, :show, :destroy, :update, :edit] do
   end  
 
-  # get "rooms/index"
-  # get "rooms/new"
-  # get "rooms/create"
-
+  resources :admin_members, :only => [:index] do
+  end
+  
  end 
 
 

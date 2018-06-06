@@ -81,3 +81,6 @@ gem "money",              "6.11.3"                 # https://github.com/RubyMone
 gem "wicked_pdf",         "1.1.0"                  # https://github.com/mileszs/wicked_pdf
 gem "wkhtmltopdf-binary", "0.12.3.1"               # https://github.com/zakird/wkhtmltopdf_binary_gem
 gem "faker",              "1.8.7"                  # https://github.com/stympy/faker
+gem "dotenv-rails",       "2.4.0"                  # https://github.com/bkeepers/dotenv
+
+
