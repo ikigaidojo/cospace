@@ -1,30 +1,22 @@
-<div id="room_show" class="row">
-  <div class="col-md-8 col-md-offset-2">
-    <div class="panel panel-default">
-      <div class="panel-heading pin_image"> 
-        <h1><%= @room.name %></h1>
-      </div> 
-      <div class="panel-body">
-       
-        <p><%= @room.description %></p>
-      </div>
-      <div class="panel-footer">
-        <div class="row">
-          <div class="col-md-6">
-            <p class="user">
-               Submitted by 
-            <%= @room.location %>
-            </p>
-          </div> 
-          <div class="col-md-6">
-            <div class="btn-group pull-right">
-              <%= link_to "Back", rooms_path, class: "btn btn-default" %>
-              <%#= link_to "Edit", edit_pin_path, class: "btn btn-default" %>
-              <%#= link_to "Delete", pin_path, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default" %>
-            </div>
+<div class="mx-auto" style="width: 30rem;">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+        <div class="card-body text-left">
+          <h5 class="card-title"><%= @room.name %></h5>
+          <hr>
+          <p class="card-text"><b>Description: </b><%= @room.description %></p>
+          <p class="card-text"><b>Price: </b><%= @room.price %></p>
+          <p class="card-text"><b>Facilities: </b> <%= @room.facilities %></p>
+          <p class="card-text"><b>Location: </b><%= @room.location %></p>
+          <div class="text-right">
+            <%= link_to "Edit", rooms_path, class: "btn btn-primary btn-sm" %>
+            <%= link_to "Delete", room_path, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-warning btn-sm" %>
+            <%= link_to "Back", rooms_path, class: "btn btn-secondary btn-sm" %>
           </div>
-        </div>          
-      </div>      
-    </div>    
-  </div>    
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
