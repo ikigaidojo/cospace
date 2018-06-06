@@ -1,24 +1,28 @@
-<h1>Edit Room</h1>
-<div class="container">
-  <%= form_for @room, html: { multipart: true }  do |f| %>
-<div class="form-group">
-   <%= f.text_field :name, class: "form-control", placeholder: "Room Name:" %>
-</div>
+<div class="mx-auto" style="max-width: 35rem;">
+  <div class="card text-center">
+   <div class="card-body">
+    <h2 class="card-title">Edit Room</h2>
+      <%= form_for @room, html: { multipart: true }  do |f| %>
+    <div class="form-group">
+       <%= f.text_field :name, class: "form-control", placeholder: "Room Name" %>
+    </div>
 
-<div class="form-group">
-  <%= f.text_area :description, class: "form-control", placeholder: "Description" %>
-</div>
-<div class="form-group">
-   <%= f.text_field :price, class: "form-control", placeholder: "Price" %>
-</div>
+    <div class="form-group">
+      <%= f.text_area :description, class: "form-control", placeholder: "Description" %>
+    </div>
+    <div class="form-group">
+       <%= f.text_field :price, class: "form-control", placeholder: "Price" %>
+    </div>
 
-<div class="form-group">
-  <%= f.text_field :location, class: "form-control", placeholder: "Location" %>
-</div>
+    <div class="form-group">
+      <%= f.text_field :location, class: "form-control", placeholder: "Location" %>
+    </div>
 
-<div class="form-group text-right">
-  <%= f.submit 'Update Room', class: "btn btn-success" %>
-  <%= link_to "Cancel", room_path, class: "btn btn-secondary" %>
-</div>
-  <% end %>
+    <div class="form-group text-right">
+      <%= f.submit 'Update Room', class: "btn btn-success" %>
+      <%= link_to "Cancel", room_path, class: "btn btn-secondary" %>
+    </div>
+      <% end %>
+    </div>
+  </div>
 </div>
