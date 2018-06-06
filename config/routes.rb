@@ -57,10 +57,9 @@ Rails.application.routes.draw do
   resources :admin_members, :only => [:index] do
   end
   
-  resources :walk_ins, :only => [:index] do
+  resources :walk_ins, :only => [:index, :walkin_member] do
   end
-  
- end 
+end 
 
 
 
