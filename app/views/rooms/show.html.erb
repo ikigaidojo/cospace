@@ -11,7 +11,7 @@
           <p class="card-text"><b>Facilities: </b> <%= @room.facilities %></p>
           <p class="card-text"><b>Location: </b><%= @room.location %></p>
           <div class="text-right">
-            <%= link_to "Edit", rooms_path, class: "btn btn-primary btn-sm" %>
+            <%= link_to "Edit", edit_room_path, class: "btn btn-primary btn-sm" %>
             <%= link_to "Delete", room_path, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-warning btn-sm" %>
             <%= link_to "Back", rooms_path, class: "btn btn-secondary btn-sm" %>
           </div>
