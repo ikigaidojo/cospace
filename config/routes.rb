@@ -54,6 +54,9 @@ Rails.application.routes.draw do
     end
   end  
 
+  resources :rooms, :only => [:index, :new, :create, :show, :destroy, :update, :edit] do
+  end  
+
   resources :admin_members, :only => [:index] do
   end
   

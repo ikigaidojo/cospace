@@ -1,0 +1,24 @@
+<h1>Rooms</h1>
+<div class="text-left">
+  <%= link_to "Add Room", new_room_path, class: "btn btn-primary" %>
+</div>
+<br>
+<div class="row">
+  <%- @rooms.each do |room| %>
+    <div class="col-md-3">
+      <div class="card" style="width: 18rem;">
+        <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+        <div class="card-body text-left">
+          <h5 class="card-title"><%= room.name %></h5>
+          <hr>
+          <!-- <p class="card-text"><b>Description: </b><%= room.description %></p> -->
+          <p class="card-text"><b>Price: </b><%= room.price %></p>
+          <!-- <p class="card-text"><b>Facilities: </b> <%= room.facilities %></p> -->
+          <p class="card-text"><b>Location: </b><%= room.location %></p>
+          <%= link_to "View", room, class: "btn btn-secondary" %>
+        </div>
+      </div>
+      <br>
+    </div>
+  <% end %>
+</div>
