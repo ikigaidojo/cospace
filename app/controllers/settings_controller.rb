@@ -71,6 +71,5 @@ puts "@DEBUG L:47"
     # NOTE: Using `strong_parameters` gem
     params.require(:member).permit(:first_name, :last_name, :email, :gender, :phone_number)
   end
-
 end 
 

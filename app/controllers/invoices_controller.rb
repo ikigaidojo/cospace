@@ -76,8 +76,7 @@ class InvoicesController < ApplicationController
         template: "invoices/generate_pdf.html.erb",
         layout: "pdf.html"
       end
-    end
-   
+    end  
   end
 end
 

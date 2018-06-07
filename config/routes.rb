@@ -44,7 +44,6 @@ Rails.application.routes.draw do
   resource :setting, :only => [] do
     collection do
       patch "update_password"
-      
     end
   end
   
@@ -56,8 +55,23 @@ Rails.application.routes.draw do
 
   resources :admin_members, :only => [:index] do
   end
-  
- end 
+
+  resources :walk_ins, :only => [:index] do
+    collection do
+      post "send_email"
+    end
+  end
+end    
+
+
+=begin
+  resources :walk_ins do
+    member do
+      get :confirm_email
+    end
+  end
+=end  
+
 
 
 
