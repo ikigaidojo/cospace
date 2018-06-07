@@ -138,23 +138,24 @@ body {
 }
 
 /* footer */
-#footer-divider {
+/*#footer-divider {
   position: relative;
   padding-bottom: 24rem;
 }
-
-footer {
+*/
+/*footer {
   position: absolute;
   right: 0;
   bottom: 0;
   left: 0;
   padding: 1rem;
   text-align: center;
-}
+}*/
 
 #myFooter {
-  background-color: grey;
-  color:white;
+  position: relative;
+  background-color: white;
+  color: darkgrey;
 }
 
 /*#myFooter .footer-copyright{
