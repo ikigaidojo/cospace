@@ -3,15 +3,16 @@
   <% @members.each do |member|%>
   <% id = member.first_name%>
   <div class ="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-    <div class="card">
-      <div class="card-body">
+    <div class="card padding-bum">
+      <div class="card-body text-left">
         <h5 class="card-title"><%= member.first_name%> <%= member.last_name%></h5>
+        <hr>
         <p class="card-text">
           <%=member.email%> <br>
           <%=member.phone_number%>
         </p>
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#<%= id %>Modal">
+        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#<%= id %>Modal">
           Details
         </button>
 
@@ -59,10 +60,10 @@
       </div>
     </div>
   </div> <!-- card end -->
-  <br> <br> <br>  
-
-
-
+  <br>
 
   <% end %>
+  
+
+
 </row>
